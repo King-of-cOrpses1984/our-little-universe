@@ -1,0 +1,4369 @@
+
+/* =====================================
+   OUR LITTLE UNIVERSE
+   MAIN DESIGN
+===================================== */
+
+:root {
+    --ink: #30243d;
+    --muted: #887b91;
+    --purple: #21172f;
+    --lavender: #d7c8ff;
+    --pink: #f2a9c4;
+    --cream: #fffaf5;
+    --paper: #fffdf9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px;
+    background: var(--cream);
+}
+
+body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
+.hero {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #49345d 0%,
+            #30203f 38%,
+            #21172f 75%
+        );
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+}
+
+.hero-inner {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: var(--pink);
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(55px, 9vw, 100px);
+    line-height: 1.1;
+    margin: 28px 0;
+    font-weight: 500;
+}
+
+.hero h1 span {
+    color: var(--pink);
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 550px;
+    margin: 0 auto;
+    color: #e4dce9;
+    font-size: 16px;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 13px 28px;
+    background: var(--pink);
+    color: var(--purple);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px #0004;
+}
+
+/* =====================================
+   COUNTDOWN
+===================================== */
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 35px auto 0;
+    flex-wrap: wrap;
+}
+
+.timebox {
+    min-width: 75px;
+    padding: 13px 15px;
+    background: #ffffff12;
+    border: 1px solid #ffffff25;
+    border-radius: 14px;
+    backdrop-filter: blur(10px);
+}
+
+.timebox b {
+    display: block;
+    font-size: 28px;
+    color: var(--pink);
+}
+
+.timebox span {
+    font-size: 11px;
+    color: #ddd2e8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#countdownNote {
+    display: block;
+    margin-top: 18px;
+    color: #d9cde2;
+    font-size: 12px;
+}
+
+/* =====================================
+   TOP NAVIGATION
+===================================== */
+
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    padding: 15px;
+    background: #fffaf5ee;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #eee4ed;
+    flex-wrap: wrap;
+}
+
+.navigation a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.navigation a:hover {
+    color: #c66f9b;
+}
+
+/* =====================================
+   STARS BACKGROUND
+===================================== */
+
+.stars::before,
+.stars::after {
+    content: "✦       ·       ✧       ·       ✦";
+    position: absolute;
+    width: 100%;
+    top: 15%;
+    left: 0;
+    color: #ffffff50;
+    font-size: 30px;
+    letter-spacing: 30px;
+    animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+.stars::after {
+    top: 75%;
+    animation-delay: 2s;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: translateY(-10px);
+    }
+}
+
+/* =====================================
+   CHAPTER 01 — STORY SECTION
+===================================== */
+
+.story-section {
+    padding: 110px 8%;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #f8e8f0 0,
+            transparent 35%
+        ),
+        var(--cream);
+    position: relative;
+}
+
+.section-heading {
+    max-width: 750px;
+    margin: 0 auto 75px;
+    text-align: center;
+}
+
+.chapter-label {
+    display: inline-block;
+    color: #bd7798;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 5vw, 55px);
+    line-height: 1.25;
+    color: #49334e;
+    font-weight: 500;
+}
+
+.section-heading p {
+    max-width: 570px;
+    margin: 20px auto 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* INTRO CARD */
+
+.story-intro {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 85px;
+}
+
+.story-card {
+    max-width: 570px;
+    width: 100%;
+    padding: 38px 30px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #f1dce8;
+    border-radius: 24px;
+    box-shadow: 0 15px 45px #59314d0d;
+    transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-6px);
+}
+
+.story-icon {
+    font-size: 32px;
+}
+
+.story-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: #62435e;
+    margin: 12px 0;
+}
+
+.story-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* TIMELINE */
+
+.timeline {
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 24px;
+    top: 15px;
+    bottom: 15px;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        #e8b8ce,
+        #c9b5e8,
+        #e8b8ce
+    );
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 75px;
+    margin-bottom: 45px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 22px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ecc8d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 2;
+    box-shadow: 0 5px 20px #9f64851a;
+}
+
+.timeline-content {
+    background: #fff;
+    border: 1px solid #f0e2eb;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 12px 35px #4b31520a;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px #4b315214;
+}
+
+.timeline-date {
+    color: #bd7798;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.timeline-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: #49334e;
+    margin: 10px 0;
+}
+
+.timeline-content p {
+    color: #766b7c;
+    font-size: 14px;
+    line-height: 1.9;
+    white-space: pre-line;
+}
+
+.timeline-note {
+    display: inline-block;
+    margin-top: 18px;
+    color: #bd7798;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* STORY ENDING */
+
+.story-ending {
+    text-align: center;
+    margin-top: 75px;
+}
+
+.story-ending span {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 55px;
+    color: #c58ba9;
+}
+
+.story-ending p {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-style: italic;
+    color: #79617d;
+}
+
+/* =====================================
+   CHAPTER NAVIGATION BUTTONS
+===================================== */
+
+.chapter-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 55px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(80, 55, 90, 0.15);
+}
+
+.chapter-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.previous-btn {
+    color: #51415f;
+    background: #eee5f2;
+    border: 1px solid #d9c9e2;
+}
+
+.next-btn {
+    color: #fffaf7;
+    background: #493354;
+    border: 1px solid #493354;
+}
+
+.chapter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(49, 30, 60, 0.15);
+}
+
+.page-number {
+    color: #88758f;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* =====================================
+   FUTURE CHAPTER PLACEHOLDERS
+===================================== */
+
+.chapter-placeholder {
+    min-height: 85vh;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--cream);
+    position: relative;
+}
+
+.chapter-placeholder:nth-of-type(even) {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #f5e5f0 0,
+            transparent 40%
+        ),
+        var(--cream);
+}
+
+.coming-soon {
+    max-width: 600px;
+    padding: 45px 30px;
+    background: var(--paper);
+    border: 1px solid #f0dce8;
+    border-radius: 25px;
+    box-shadow: 0 15px 45px #59314d0d;
+}
+
+.coming-soon h2 {
+    font-family: 'Playfair Display', serif;
+    color: #49334e;
+    font-size: clamp(30px, 5vw, 48px);
+    margin: 15px 0;
+}
+
+.coming-soon p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =====================================
+   MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .navigation {
+        gap: 13px;
+    }
+
+    .navigation a {
+        font-size: 11px;
+    }
+
+    .timebox {
+        min-width: 65px;
+        padding: 10px;
+    }
+
+    .story-section {
+        padding: 75px 6%;
+    }
+
+    .section-heading {
+        margin-bottom: 50px;
+    }
+
+    .story-card {
+        padding: 28px 20px;
+    }
+
+    .timeline-item {
+        padding-left: 58px;
+        margin-bottom: 30px;
+    }
+
+    .timeline::before {
+        left: 18px;
+    }
+
+    .timeline-dot {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .timeline-content {
+        padding: 22px 18px;
+    }
+
+    .timeline-content h3 {
+        font-size: 21px;
+    }
+
+    .timeline-content p {
+        font-size: 13px;
+    }
+
+    .chapter-navigation {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .chapter-btn {
+        padding: 11px 16px;
+        font-size: 12px;
+    }
+
+    .page-number {
+        width: 100%;
+        order: 3;
+    }
+
+    .chapter-placeholder {
+        padding: 75px 6%;
+    }
+
+    .coming-soon {
+        padding: 30px 20px;
+    }
+}
+
+
+
+/* =====================================
+   STORYBOOK PAGE TRANSITIONS
+===================================== */
+
+body {
+    overflow: hidden !important;
+}
+
+.navigation {
+    display: none !important;
+}
+
+/* Every chapter becomes a screen */
+
+.hero,
+.story-section,
+.chapter-placeholder {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    z-index: 1;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(35px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0s linear 0.5s;
+}
+
+/* Only the active chapter is visible */
+
+.chapter-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+    z-index: 2;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0s;
+}
+
+/* Keep navigation buttons accessible */
+
+.chapter-navigation {
+    position: relative;
+    z-index: 5;
+}
+
+/* Smooth mobile scrolling inside the current chapter */
+
+.hero,
+.story-section,
+.chapter-placeholder {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #d7c8ff transparent;
+}
+
+
+
+/* =====================================
+   CHAPTER 02 — MEMORY WALL
+===================================== */
+
+.memory-section {
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            #f7e6ef 0,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            #eee7fa 0,
+            transparent 35%
+        ),
+        var(--cream);
+}
+
+.memory-intro {
+    text-align: center;
+    margin: 0 auto 45px;
+}
+
+.memory-sparkle {
+    display: block;
+    font-size: 32px;
+    color: #c58ba9;
+}
+
+.memory-intro h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #49334e;
+    margin: 8px 0;
+}
+
+.memory-intro p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* GALLERY GRID */
+
+.memory-gallery {
+    width: min(950px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px;
+    padding: 15px;
+}
+
+.memory-card {
+    background: #fffdfb;
+    padding: 13px 13px 20px;
+    border: 1px solid #f0e1e9;
+    border-radius: 5px;
+    box-shadow: 0 12px 30px #49334e12;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-7px) rotate(0deg);
+    box-shadow: 0 18px 35px #49334e20;
+}
+
+.memory-tilt-left {
+    transform: rotate(-2deg);
+}
+
+.memory-tilt-right {
+    transform: rotate(2deg);
+}
+
+/* IMAGE PLACEHOLDERS */
+
+.memory-image {
+    min-height: 240px;
+    aspect-ratio: 4 / 3;
+    background:
+        linear-gradient(
+            135deg,
+            #f2dce9,
+            #e8e0f5,
+            #f9e9e4
+        );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #806580;
+    overflow: hidden;
+}
+
+.memory-image span {
+    font-size: 45px;
+}
+
+.memory-image small {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* CAPTIONS */
+
+.memory-caption {
+    padding: 17px 8px 0;
+    text-align: center;
+}
+
+.memory-caption span {
+    color: #bd7798;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.memory-caption h3 {
+    font-family: 'Playfair Display', serif;
+    color: #49334e;
+    font-size: 20px;
+    margin: 7px 0;
+}
+
+.memory-caption p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ENDING */
+
+.memory-ending {
+    text-align: center;
+    margin: 65px auto 30px;
+}
+
+.memory-ending span {
+    color: #c58ba9;
+    font-size: 38px;
+}
+
+.memory-ending h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: #49334e;
+    margin: 8px 0;
+}
+
+.memory-ending p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .memory-gallery {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        gap: 28px;
+    }
+
+    .memory-image {
+        min-height: 210px;
+    }
+
+    .memory-intro h3 {
+        font-size: 25px;
+    }
+
+    .memory-ending {
+        padding: 0 15px;
+    }
+
+}
+
+
+
+/* =========================================
+   OUR LITTLE UNIVERSE
+   MOBILE SCREEN OPTIMISATION
+========================================= */
+
+/* Prevent unwanted horizontal overflow */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hero,
+.story-section,
+.chapter-placeholder {
+    box-sizing: border-box;
+    padding-top: max(25px, env(safe-area-inset-top));
+    padding-bottom: max(25px, env(safe-area-inset-bottom));
+    scroll-behavior: smooth;
+}
+
+/* Make all content fit the available width */
+
+.hero-inner,
+.story-section > *,
+.chapter-placeholder > * {
+    max-width: 100%;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================================
+   PHONE SCREENS
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* HERO */
+
+    .hero {
+        padding: 35px 18px;
+        min-height: 100dvh;
+    }
+
+    .hero-inner {
+        width: 100%;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 11vw, 58px);
+        line-height: 1.12;
+        margin: 20px 0;
+        overflow-wrap: anywhere;
+    }
+
+    .hero p {
+        font-size: 13px;
+        line-height: 1.7;
+        padding: 0 5px;
+    }
+
+    .hero-btn {
+        margin-top: 24px;
+        padding: 12px 23px;
+        font-size: 13px;
+    }
+
+    /* COUNTDOWN */
+
+    .countdown {
+        width: 100%;
+        max-width: 350px;
+        gap: 8px;
+        margin-top: 25px;
+        flex-wrap: nowrap;
+    }
+
+    .timebox {
+        flex: 1;
+        min-width: 0;
+        padding: 10px 4px;
+        border-radius: 11px;
+    }
+
+    .timebox b {
+        font-size: clamp(19px, 6vw, 27px);
+    }
+
+    .timebox span {
+        font-size: 8px;
+        letter-spacing: 0.5px;
+    }
+
+    #countdownNote {
+        font-size: 11px;
+        margin-top: 13px;
+    }
+
+    /* STORY CHAPTER */
+
+    .story-section {
+        padding: 55px 18px 30px;
+    }
+
+    .section-heading {
+        margin-bottom: 38px;
+    }
+
+    .chapter-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(29px, 8vw, 40px);
+    }
+
+    .section-heading p {
+        font-size: 13px;
+        line-height: 1.7;
+        margin-top: 13px;
+    }
+
+    .story-intro {
+        margin-bottom: 45px;
+    }
+
+    .story-card {
+        padding: 25px 18px;
+        border-radius: 18px;
+    }
+
+    .story-card h3 {
+        font-size: 22px;
+    }
+
+    .story-card p {
+        font-size: 13px;
+    }
+
+    /* TIMELINE */
+
+    .timeline::before {
+        left: 17px;
+    }
+
+    .timeline-item {
+        padding-left: 52px;
+        margin-bottom: 25px;
+    }
+
+    .timeline-dot {
+        width: 36px;
+        height: 36px;
+        top: 18px;
+        font-size: 15px;
+    }
+
+    .timeline-content {
+        padding: 20px 15px;
+        border-radius: 16px;
+    }
+
+    .timeline-date {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .timeline-content h3 {
+        font-size: 20px;
+    }
+
+    .timeline-content p {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .timeline-note {
+        font-size: 11px;
+    }
+
+    .story-ending {
+        margin-top: 45px;
+    }
+
+    .story-ending span {
+        font-size: 42px;
+    }
+
+    .story-ending p {
+        font-size: 18px;
+    }
+
+    /* MEMORY WALL */
+
+    .memory-gallery {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        max-width: 360px;
+        padding: 8px;
+        gap: 25px;
+    }
+
+    .memory-card {
+        width: 100%;
+        padding: 10px 10px 16px;
+    }
+
+    .memory-image {
+        width: 100%;
+        min-height: 180px;
+    }
+
+    .memory-caption h3 {
+        font-size: 19px;
+    }
+
+    .memory-caption p {
+        font-size: 12px;
+    }
+
+    /* OTHER CHAPTERS */
+
+    .chapter-placeholder {
+        padding: 45px 18px 30px;
+    }
+
+    .coming-soon {
+        width: 100%;
+        padding: 28px 18px;
+        border-radius: 19px;
+    }
+
+    .coming-soon h2 {
+        font-size: clamp(27px, 8vw, 38px);
+    }
+
+    .coming-soon p {
+        font-size: 13px;
+    }
+
+    /* CHAPTER NAVIGATION */
+
+    .chapter-navigation {
+        width: 100%;
+        gap: 10px;
+        margin-top: 35px;
+        padding: 20px 0;
+        flex-wrap: wrap;
+    }
+
+    .chapter-btn {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 10px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .page-number {
+        width: 100%;
+        order: 3;
+        font-size: 10px;
+    }
+}
+
+/* =========================================
+   SMALL / SHORT PHONE SCREENS
+========================================= */
+
+@media screen and (max-width: 600px)
+and (max-height: 700px) {
+
+    .hero {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+
+    .hero h1 {
+        margin: 13px 0;
+        font-size: clamp(36px, 10vw, 48px);
+    }
+
+    .hero-btn {
+        margin-top: 17px;
+    }
+
+    .countdown {
+        margin-top: 18px;
+    }
+
+    .timebox {
+        padding: 7px 3px;
+    }
+
+    .story-section {
+        padding-top: 35px;
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .story-intro {
+        margin-bottom: 35px;
+    }
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media screen and (min-width: 601px)
+and (max-width: 900px) {
+
+    .hero {
+        padding: 45px 30px;
+    }
+
+    .story-section {
+        padding: 75px 6%;
+    }
+
+    .memory-gallery {
+        gap: 22px;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+/* =========================================
+   OUR LITTLE UNIVERSE — GALAXY THEME
+========================================= */
+
+.planetarium-section {
+    background: #020108 !important;
+    color: #fff;
+    overflow: hidden !important;
+    isolation: isolate;
+}
+
+.planetarium-section::before {
+    display: none !important;
+}
+
+.planetarium-section .galaxy-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at 50% 50%, #171027 0%, #080512 48%, #020108 100%);
+}
+
+/* NEBULAS */
+
+.galaxy-nebula {
+    position: absolute;
+    width: 65vw;
+    height: 65vw;
+    max-width: 850px;
+    max-height: 850px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0;
+    pointer-events: none;
+    animation: nebulaAppear 5s ease forwards,
+               nebulaDrift 18s ease-in-out infinite alternate;
+}
+
+.violet-nebula {
+    background: radial-gradient(circle, #7434c8 0%, #35145e 35%, transparent 70%);
+    top: -25%;
+    left: -15%;
+    animation-delay: 0.5s, 5s;
+}
+
+.green-nebula {
+    background: radial-gradient(circle, #087d68 0%, #064a43 35%, transparent 70%);
+    bottom: -35%;
+    right: -15%;
+    animation-delay: 1.5s, 6s;
+}
+
+@keyframes nebulaAppear {
+    to { opacity: 0.42; }
+}
+
+@keyframes nebulaDrift {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(8%, -6%) scale(1.2); }
+}
+
+/* SOLAR FLARES */
+
+.galaxy-flare {
+    position: absolute;
+    width: 130%;
+    height: 2px;
+    left: -15%;
+    opacity: 0;
+    filter: blur(5px);
+    transform: rotate(-25deg);
+    pointer-events: none;
+}
+
+.flare-one {
+    top: 35%;
+    background: linear-gradient(90deg, transparent, #a66aff, #e5c5ff, transparent);
+    box-shadow: 0 0 25px 5px #8d4dff;
+    animation: flareSweep 7s ease-in-out infinite;
+}
+
+.flare-two {
+    top: 65%;
+    background: linear-gradient(90deg, transparent, #00c9a2, #a1ffe8, transparent);
+    box-shadow: 0 0 25px 5px #00c9a2;
+    animation: flareSweep 9s ease-in-out infinite 2s;
+}
+
+@keyframes flareSweep {
+    0%, 100% { opacity: 0; transform: translateX(-15%) rotate(-25deg); }
+    35%, 65% { opacity: 0.65; }
+    50% { transform: translateX(15%) rotate(-25deg); }
+}
+
+/* STARS */
+
+.galaxy-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, white 99%, transparent),
+        radial-gradient(2px 2px at 25% 75%, #d9c5ff 99%, transparent),
+        radial-gradient(1px 1px at 45% 35%, white 99%, transparent),
+        radial-gradient(2px 2px at 65% 15%, #b9ffe8 99%, transparent),
+        radial-gradient(1px 1px at 80% 60%, white 99%, transparent),
+        radial-gradient(2px 2px at 90% 30%, #d9c5ff 99%, transparent),
+        radial-gradient(1px 1px at 15% 85%, white 99%, transparent),
+        radial-gradient(1px 1px at 55% 90%, white 99%, transparent);
+    background-size: 350px 350px;
+    animation: starsTwinkle 5s ease-in-out infinite alternate;
+}
+
+@keyframes starsTwinkle {
+    from { opacity: 0.35; }
+    to { opacity: 1; }
+}
+
+/* INTRO TEXT */
+
+.galaxy-intro {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    pointer-events: none;
+    animation: introFade 6s ease forwards;
+}
+
+.galaxy-eyebrow {
+    color: #c7a6ff;
+    letter-spacing: 5px;
+    font-size: 10px;
+    margin-bottom: 20px;
+}
+
+.galaxy-intro h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.25;
+    color: #fff;
+}
+
+.galaxy-intro h2 span {
+    color: #c6a0ff;
+    font-style: italic;
+}
+
+.galaxy-intro p {
+    color: #aaa0bd;
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+@keyframes introFade {
+    0%, 65% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* PLANET FIELD */
+
+.planetarium {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0;
+    animation: planetsAppear 3s ease 3s forwards;
+}
+
+@keyframes planetsAppear {
+    to { opacity: 1; }
+}
+
+/* REMOVE OLD BOX / CARD APPEARANCE */
+
+.planetarium .planet {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    color: white;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    animation: planetFloat 6s ease-in-out infinite;
+}
+
+.planetarium .planet:hover {
+    background: transparent !important;
+    transform: scale(1.12);
+}
+
+.planet-name {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #e6d9ff;
+    text-shadow: 0 0 12px #a77aff;
+}
+
+.planet-orb {
+    display: block;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        inset -15px -12px 25px rgba(0,0,0,.7),
+        inset 7px 5px 15px rgba(255,255,255,.25),
+        0 0 25px rgba(166,120,255,.25);
+}
+
+/* PLANET SURFACES */
+
+.moon-orb {
+    background: radial-gradient(circle at 32% 28%, #f4f0e9, #9995a4 55%, #33303c);
+}
+
+.venus-orb {
+    background: radial-gradient(circle at 35% 30%, #ffe2a5, #d78a58 50%, #713b5b);
+}
+
+.star-orb {
+    background: radial-gradient(circle at 35% 30%, #fff7c4, #e9b64e 45%, #7750a8);
+}
+
+.rose-orb {
+    background: radial-gradient(circle at 35% 30%, #ffb7d4, #b94e91 55%, #4c235c);
+}
+
+.saturn-orb {
+    background: radial-gradient(circle at 35% 30%, #f9dfad, #bd956d 55%, #60425e);
+}
+
+.saturn-orb::after {
+    content: "";
+    position: absolute;
+    width: 125px;
+    height: 30px;
+    border: 5px solid rgba(228, 196, 154, .8);
+    border-radius: 50%;
+    top: 22px;
+    left: -29px;
+    transform: rotate(-25deg);
+}
+
+.dream-orb {
+    background: radial-gradient(circle at 35% 30%, #c9e6ff, #6376c8 55%, #24244f);
+}
+
+.heart-orb {
+    background: radial-gradient(circle at 35% 30%, #ffc3df, #e84d94 50%, #651d5e);
+    box-shadow: 0 0 35px #e84d94,
+                inset -15px -12px 25px rgba(0,0,0,.6);
+}
+
+/* PLANET POSITIONS */
+
+.planet-moon { top: 19%; left: 13%; }
+.planet-venus { top: 16%; left: 43%; animation-delay: -2s !important; }
+.planet-star { top: 23%; right: 12%; animation-delay: -4s !important; }
+.planet-rose { top: 53%; left: 8%; animation-delay: -1s !important; }
+.planet-saturn { top: 50%; left: 42%; animation-delay: -3s !important; }
+.planet-dream { top: 54%; right: 9%; animation-delay: -5s !important; }
+.planet-heart { bottom: 5%; left: 44%; animation-delay: -2.5s !important; }
+
+@keyframes planetFloat {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -13px; }
+}
+
+/* HINT */
+
+.planetarium-hint {
+    position: absolute;
+    z-index: 4;
+    bottom: 22px;
+    width: 100%;
+    text-align: center;
+    color: #c5b4df;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* EXIT CONTROL */
+
+.galaxy-exit {
+    position: absolute;
+    z-index: 8;
+    top: 20px;
+    left: 20px;
+    padding: 10px 16px;
+    border: 1px solid rgba(205,180,255,.25);
+    border-radius: 30px;
+    background: rgba(15,10,30,.55);
+    color: #e9ddff;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+/* HIDE NORMAL CHAPTER NAVIGATION */
+
+.planetarium-section .galaxy-navigation,
+.planetarium-section .galaxy-page-number {
+    display: none !important;
+}
+
+/* PLANET REVEAL */
+
+.planet-reveal[hidden] {
+    display: none !important;
+}
+
+.planet-reveal {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: rgba(2,1,8,.96);
+}
+
+.reveal-star {
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    text-shadow: 0 0 20px #d7b4ff, 0 0 60px #a66aff;
+}
+
+.planet-message {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding: 30px;
+    text-align: center;
+    opacity: 0;
+    color: white;
+}
+
+.planet-message h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 400;
+    color: #d9c1ff;
+}
+
+.planet-message p {
+    color: #e6dfea;
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 22px 0;
+}
+
+.planet-back {
+    padding: 12px 22px;
+    border: 1px solid #a77aff;
+    border-radius: 30px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+/* MOBILE GALAXY */
+
+@media (max-width: 600px) {
+    .galaxy-nebula {
+        width: 100vw;
+        height: 100vw;
+        filter: blur(65px);
+    }
+
+    .planet-orb {
+        width: 55px;
+        height: 55px;
+    }
+
+    .planetarium .planet {
+        gap: 7px;
+        padding: 8px;
+    }
+
+    .planet-name {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .planet-moon { top: 17%; left: 5%; }
+    .planet-venus { top: 15%; left: 38%; }
+    .planet-star { top: 17%; right: 4%; }
+    .planet-rose { top: 43%; left: 3%; }
+    .planet-saturn { top: 43%; left: 38%; }
+    .planet-dream { top: 43%; right: 3%; }
+    .planet-heart { bottom: 12%; left: 38%; }
+
+    .planetarium-hint {
+        bottom: 18px;
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .galaxy-exit {
+        top: 12px;
+        left: 12px;
+        font-size: 10px;
+    }
+}
+
+
+
+/* =====================================
+   PLANET REVEAL ANIMATIONS
+===================================== */
+
+.planet-reveal.reveal-active {
+    animation: galaxyRevealIn 1s ease forwards;
+}
+
+@keyframes galaxyRevealIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.reveal-star.star-growing {
+    animation: growingStar 1.8s ease forwards;
+}
+
+@keyframes growingStar {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(18);
+        opacity: 0;
+    }
+}
+
+.planet-message.message-visible {
+    animation: messageAppear 1.5s ease 0.8s forwards;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEART CONTINUE BUTTON */
+
+.heart-continue[hidden] {
+    display: none !important;
+}
+
+.heart-continue {
+    display: block;
+    margin: 22px auto 0;
+    padding: 13px 25px;
+    border: 1px solid rgba(205, 170, 255, 0.7);
+    border-radius: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(117, 65, 175, 0.35),
+        rgba(34, 20, 65, 0.7)
+    );
+    color: #fff;
+    font-family: inherit;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        box-shadow 0.3s ease;
+}
+
+.heart-continue.continue-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heart-continue:hover {
+    box-shadow: 0 0 25px rgba(174, 119, 255, 0.5);
+    border-color: #d9c1ff;
+}
+
+@media (max-width: 600px) {
+    .planet-message {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .planet-message p {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .heart-continue {
+        font-size: 11px;
+        padding: 12px 18px;
+    }
+}
+
+
+
+/* =========================================
+   CHAPTER 05 — CINEMATIC LETTER EXPERIENCE
+========================================= */
+
+.letter-section.chapter-placeholder {
+    background:
+        radial-gradient(ellipse at 50% 35%, #241735 0%, #100b1c 48%, #07050e 100%) !important;
+    color: #fff;
+    justify-content: flex-start;
+    overflow-y: auto !important;
+    padding: 55px 20px 35px;
+    isolation: isolate;
+}
+
+.letter-stars {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .65;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, #fff 99%, transparent),
+        radial-gradient(2px 2px at 80% 15%, #d9c1ff 99%, transparent),
+        radial-gradient(1px 1px at 35% 75%, #fff 99%, transparent),
+        radial-gradient(2px 2px at 65% 60%, #f4c9e3 99%, transparent),
+        radial-gradient(1px 1px at 90% 85%, #fff 99%, transparent);
+    background-size: 280px 280px;
+    animation: letterStars 5s ease-in-out infinite alternate;
+}
+
+@keyframes letterStars {
+    from { opacity: .25; }
+    to { opacity: .85; }
+}
+
+
+/* LETTER HEADING */
+
+.letter-heading {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 15px auto 15px;
+    width: 100%;
+}
+
+.letter-heading > span {
+    color: #c8a8ed;
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.letter-heading h2 {
+    margin: 17px 0 10px;
+    color: #fff4ff;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 6vw, 55px);
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.letter-heading p {
+    color: #c9bbd7;
+    font-size: 13px;
+    letter-spacing: .5px;
+}
+
+
+/* LETTER SCENE */
+
+.letter-scene {
+    position: relative;
+    width: min(720px, 100%);
+    min-height: 590px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ENVELOPE BUTTON */
+
+.envelope-trigger {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    border: 0;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.envelope-visual {
+    position: relative;
+    display: block;
+    width: 190px;
+    height: 130px;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,.45));
+    animation: envelopeFloat 4s ease-in-out infinite;
+}
+
+@keyframes envelopeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+
+/* PAPER PEEKING OUT */
+
+.envelope-paper-preview {
+    position: absolute;
+    z-index: 1;
+    width: 135px;
+    height: 100px;
+    left: 27px;
+    top: -12px;
+    background: #fff8eb;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255,220,170,.2);
+    transition: transform 1s ease;
+}
+
+
+/* ENVELOPE BODY */
+
+.envelope-body {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(145deg, #a77ab8, #654779 65%, #382849);
+    clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+    border-radius: 5px;
+}
+
+
+/* ENVELOPE FLAP */
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: linear-gradient(145deg, #d3a9d6, #926aab);
+    clip-path: polygon(0 0, 100% 0, 50% 65%);
+    transform-origin: top center;
+    transition: transform .9s ease;
+}
+
+
+/* SEAL */
+
+.envelope-seal {
+    position: absolute;
+    z-index: 5;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1c2d8;
+    color: #633b62;
+    font-size: 21px;
+    box-shadow: 0 0 20px rgba(245,190,230,.5);
+}
+
+.envelope-instruction {
+    color: #e3d0f5;
+    font-size: 12px;
+    letter-spacing: 2px;
+    animation: instructionGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes instructionGlow {
+    from { opacity: .55; }
+    to { opacity: 1; }
+}
+
+
+/* ENVELOPE OPEN ANIMATION */
+
+.letter-scene.is-open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.letter-scene.is-open .envelope-paper-preview {
+    transform: translateY(-35px);
+}
+
+.letter-scene.is-open .envelope-trigger {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -65%) scale(.85);
+}
+
+
+/* LETTER PAPER */
+
+.letter-paper {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -45%) scale(.96);
+    border-radius: 8px;
+    background:
+        linear-gradient(rgba(255,255,255,.65), rgba(255,255,255,.65)),
+        #fff5e7;
+    color: #493b45;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.5),
+        0 0 45px rgba(194,154,225,.15);
+    transition:
+        max-height 1.2s ease,
+        opacity 1s ease,
+        transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+.letter-scene.is-open .letter-paper {
+    max-height: min(72dvh, 720px);
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transition-delay: .55s;
+}
+
+.letter-paper-inner {
+    padding: 30px 38px 25px;
+}
+
+
+/* LETTER HEADER */
+
+.letter-paper-heading {
+    text-align: center;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #e8d7c6;
+    color: #a57c9d;
+}
+
+.letter-paper-heading span {
+    font-size: 9px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.letter-paper-heading div {
+    margin-top: 5px;
+    font-size: 22px;
+    color: #c77c9e;
+}
+
+
+/* SCROLLABLE LETTER CONTENT */
+
+.letter-scroll {
+    max-height: calc(min(72dvh, 720px) - 115px);
+    overflow-y: auto;
+    padding: 23px 10px 15px 2px;
+    scrollbar-width: thin;
+    scrollbar-color: #c9a8bd transparent;
+    overscroll-behavior: contain;
+    text-align: left;
+}
+
+.letter-scroll p {
+    margin: 0 0 19px;
+    color: #554653;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.95;
+    white-space: normal;
+}
+
+.letter-scroll .letter-greeting {
+    color: #865d82;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    margin-bottom: 23px;
+}
+
+.letter-scroll strong {
+    color: #885d83;
+}
+
+.letter-scroll .letter-emphasis {
+    text-align: center;
+    color: #a04d7a;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    margin: 30px 0;
+}
+
+.letter-scroll .letter-new-year {
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 21px;
+    margin-top: 30px;
+}
+
+.letter-signature {
+    margin-top: 35px;
+    text-align: right;
+    padding: 20px 5px 10px;
+    border-top: 1px solid #e8d7c6;
+}
+
+.letter-signature p {
+    margin-bottom: 6px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+}
+
+.letter-signature strong {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 23px;
+    color: #a05d87;
+}
+
+.letter-scroll .letter-end {
+    text-align: center;
+    margin-top: 25px;
+    color: #bb83a6;
+    letter-spacing: 7px;
+}
+
+
+/* BOTTOM NOTE */
+
+.letter-bottom-note {
+    margin: 5px auto 15px;
+    text-align: center;
+    color: #c5addc;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+/* CHAPTER NAVIGATION */
+
+.letter-section .chapter-navigation {
+    width: min(720px, 100%);
+    border-top-color: rgba(220,195,245,.18);
+}
+
+.letter-section .page-number {
+    color: #a99ab9;
+}
+
+
+/* MOBILE LETTER */
+
+@media (max-width: 600px) {
+
+    .letter-section.chapter-placeholder {
+        padding: 35px 15px 25px;
+    }
+
+    .letter-heading {
+        margin-top: 15px;
+    }
+
+    .letter-heading > span {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .letter-heading h2 {
+        font-size: 34px;
+    }
+
+    .letter-heading p {
+        font-size: 11px;
+    }
+
+    .letter-scene {
+        min-height: 570px;
+    }
+
+    .envelope-visual {
+        width: 165px;
+        height: 115px;
+    }
+
+    .envelope-paper-preview {
+        width: 115px;
+        height: 90px;
+        left: 25px;
+    }
+
+    .envelope-seal {
+        top: 42px;
+    }
+
+    .envelope-instruction {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+    .letter-scene.is-open .letter-paper {
+        max-height: 74dvh;
+    }
+
+    .letter-paper-inner {
+        padding: 20px 17px 15px;
+    }
+
+    .letter-paper-heading span {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .letter-scroll {
+        max-height: calc(74dvh - 95px);
+        padding: 18px 5px 12px 1px;
+    }
+
+    .letter-scroll p {
+        font-size: 12px;
+        line-height: 1.85;
+        margin-bottom: 16px;
+    }
+
+    .letter-scroll .letter-greeting {
+        font-size: 21px;
+    }
+
+    .letter-scroll .letter-emphasis {
+        font-size: 17px;
+    }
+
+    .letter-scroll .letter-new-year {
+        font-size: 18px;
+    }
+
+    .letter-signature strong {
+        font-size: 21px;
+    }
+
+    .letter-bottom-note {
+        font-size: 12px;
+    }
+
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .envelope-visual,
+    .letter-stars,
+    .envelope-instruction {
+        animation: none !important;
+    }
+
+    .letter-paper,
+    .envelope-trigger,
+    .envelope-flap {
+        transition-duration: .01ms !important;
+    }
+
+}
+
+
+
+/* =========================================
+   OUR LITTLE THINGS — FULL SCRAPBOOK DESIGN
+========================================= */
+
+#little-things {
+    --paper: #fffaf1;
+    --paper-dark: #f5eadf;
+    --ink: #51434b;
+    --muted: #96838c;
+    --pink: #e9aebd;
+    --pink-dark: #c9829a;
+    --lavender: #c9bce2;
+    --sage: #b8c7b0;
+
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at 12% 18%, #f8dce4 0%, transparent 35%),
+        radial-gradient(ellipse at 90% 85%, #e4dcf2 0%, transparent 38%),
+        #f8eee8;
+    color: var(--ink);
+    font-family: "Georgia", serif;
+    isolation: isolate;
+}
+
+#little-things * {
+    box-sizing: border-box;
+}
+
+#little-things [hidden] {
+    display: none !important;
+}
+
+/* Soft paper texture */
+
+.scrapbook-background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: .55;
+    background-image:
+        radial-gradient(#c8aab0 0.55px, transparent 0.55px);
+    background-size: 13px 13px;
+}
+
+.scrapbook-flower {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    font-size: clamp(25px, 4vw, 48px);
+    opacity: .45;
+    animation: scrapbookFloat 7s ease-in-out infinite;
+}
+
+.scrapbook-flower:nth-of-type(1) {
+    top: 12%;
+    left: 5%;
+}
+
+.scrapbook-flower:nth-of-type(2) {
+    right: 7%;
+    bottom: 13%;
+    animation-delay: -3s;
+}
+
+.scrapbook-doodle {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    color: #c98fa4;
+    opacity: .55;
+    font-size: 35px;
+}
+
+@keyframes scrapbookFloat {
+    0%, 100% { transform: translateY(0) rotate(-7deg); }
+    50% { transform: translateY(-13px) rotate(8deg); }
+}
+
+/* =========================================
+   SCRAPBOOK COVER
+========================================= */
+
+.scrapbook-cover {
+    width: min(90%, 700px);
+    min-height: min(75vh, 650px);
+    margin: 7vh auto;
+    padding: clamp(30px, 6vw, 65px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(135deg, rgba(255,255,255,.6), transparent 55%),
+        #fff9ef;
+    border: 1px solid #ead8d0;
+    border-radius: 5px 12px 8px 5px;
+    box-shadow:
+        0 25px 65px rgba(92, 60, 72, .17),
+        inset 8px 0 12px rgba(180, 130, 130, .08);
+    transform: rotate(-1deg);
+    overflow: hidden;
+}
+
+.scrapbook-cover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 17px;
+    width: 2px;
+    background: rgba(201, 130, 154, .3);
+}
+
+.scrapbook-cover::after {
+    content: "♡";
+    position: absolute;
+    top: 24px;
+    right: 30px;
+    font-size: 35px;
+    color: #d89aad;
+    transform: rotate(15deg);
+}
+
+.scrapbook-cover h2,
+.scrapbook-cover h1 {
+    font-family: "Georgia", serif;
+    font-size: clamp(2.5rem, 7vw, 4.7rem);
+    line-height: 1.08;
+    font-weight: normal;
+    color: #9b6279;
+    margin: 15px 0;
+}
+
+.scrapbook-cover p {
+    max-width: 430px;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.9;
+    color: #82717a;
+}
+
+.scrapbook-cover .cover-decoration {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+#openScrapbook,
+#closeScrapbook {
+    border: 0;
+    border-radius: 40px;
+    padding: 14px 28px;
+    margin-top: 25px;
+    background: #c9859c;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: .5px;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(172, 104, 130, .23);
+    transition: .25s ease;
+}
+
+#openScrapbook:hover,
+#closeScrapbook:hover {
+    transform: translateY(-3px);
+    background: #ae6d87;
+    box-shadow: 0 12px 25px rgba(172, 104, 130, .28);
+}
+
+/* =========================================
+   BOOK LAYOUT
+========================================= */
+
+#scrapbookBook {
+    width: min(1050px, 94%);
+    min-height: 650px;
+    margin: 3vh auto 35px;
+    position: relative;
+    padding: 25px;
+    background: #fffaf2;
+    border: 1px solid #eadbd1;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(92, 60, 72, .15);
+}
+
+#scrapbookBook::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba(183, 151, 145, .15);
+    pointer-events: none;
+}
+
+.scrapbook-page {
+    display: none;
+    position: relative;
+    min-height: 590px;
+    padding: clamp(20px, 5vw, 55px);
+    background:
+        linear-gradient(rgba(255,255,255,.55), rgba(255,255,255,.55)),
+        repeating-linear-gradient(
+            transparent 0px,
+            transparent 31px,
+            rgba(194, 171, 174, .13) 32px
+        );
+    animation: scrapbookPageIn .55s ease both;
+}
+
+.scrapbook-page.active {
+    display: block;
+}
+
+@keyframes scrapbookPageIn {
+    from {
+        opacity: 0;
+        transform: translateX(18px) rotateY(-3deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) rotateY(0);
+    }
+}
+
+.scrapbook-page h2 {
+    color: #a76f85;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: normal;
+    text-align: center;
+    margin: 8px 0 12px;
+}
+
+.scrapbook-page .page-subtitle {
+    color: #9b8790;
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 35px;
+}
+
+.scrapbook-page .page-number-label {
+    text-align: center;
+    color: #bd9ca8;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.scrapbook-page::after {
+    content: "♡";
+    position: absolute;
+    right: 25px;
+    bottom: 15px;
+    font-size: 23px;
+    color: #d9a6b5;
+}
+
+/* Tape decoration */
+
+.scrapbook-tape {
+    position: absolute;
+    width: 95px;
+    height: 25px;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    background: rgba(226, 183, 190, .55);
+}
+
+/* =========================================
+   PAGE 1 — THINGS I NOTICE
+========================================= */
+
+.notice-notes {
+    max-width: 720px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.notice-note {
+    min-height: 125px;
+    padding: 22px 18px;
+    border: 1px solid rgba(190, 151, 159, .3);
+    background: #fff3ed;
+    color: #705966;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.65;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 3px 5px 12px rgba(100, 70, 80, .08);
+    transition: .3s ease;
+    transform: rotate(-1deg);
+}
+
+.notice-note:nth-child(even) {
+    background: #f2effa;
+    transform: rotate(1.5deg);
+}
+
+.notice-note:nth-child(3) {
+    background: #f0f5ec;
+}
+
+.notice-note:hover {
+    transform: translateY(-5px) rotate(0);
+}
+
+.notice-note::before {
+    content: "✦  A LITTLE NOTE";
+    display: block;
+    margin-bottom: 12px;
+    font-family: sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #bd879b;
+}
+
+.notice-note .note-hidden {
+    display: none;
+    margin-top: 10px;
+    color: #987184;
+}
+
+.notice-note.note-open .note-hidden {
+    display: block;
+    animation: noteReveal .4s ease both;
+}
+
+@keyframes noteReveal {
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   PAGE 2 — NICKNAME DICTIONARY
+========================================= */
+
+.nickname-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    max-width: 760px;
+    margin: 30px auto;
+}
+
+.nickname-column {
+    padding: 23px 18px;
+    background: #fff2ed;
+    border: 1px dashed #d7a8b5;
+    border-radius: 4px;
+    box-shadow: 4px 7px 15px rgba(100, 70, 80, .07);
+}
+
+.nickname-column:nth-child(2) {
+    background: #f2effa;
+    border-color: #c4b4d9;
+}
+
+.nickname-column h3 {
+    text-align: center;
+    color: #a36d83;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0 0 18px;
+}
+
+.nickname-item {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border: 0;
+    border-bottom: 1px dashed rgba(165, 125, 145, .25);
+    background: rgba(255,255,255,.48);
+    color: #705966;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.nickname-item:hover,
+.nickname-item.nickname-selected {
+    background: #f3dce4;
+    color: #9c5e78;
+    transform: scale(1.04);
+    border-radius: 5px;
+}
+
+.nickname-column:nth-child(2) .nickname-item:hover,
+.nickname-column:nth-child(2) .nickname-item.nickname-selected {
+    background: #e6def3;
+    color: #786291;
+}
+
+.dictionary-footer {
+    text-align: center;
+    color: #9b8790;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+/* =========================================
+   PAGE 3 — POLAROID MOMENTS
+========================================= */
+
+.polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    max-width: 750px;
+    margin: 35px auto;
+}
+
+.little-polaroid {
+    position: relative;
+    padding: 12px 12px 24px;
+    border: 0;
+    background: white;
+    box-shadow: 0 7px 18px rgba(65, 49, 56, .14);
+    cursor: pointer;
+    transition: .35s ease;
+    transform: rotate(-2deg);
+    color: #76636c;
+    font-family: inherit;
+}
+
+.little-polaroid:nth-child(even) {
+    transform: rotate(2.5deg);
+}
+
+.little-polaroid:hover,
+.little-polaroid.polaroid-open {
+    transform: rotate(0) translateY(-7px);
+    box-shadow: 0 14px 27px rgba(65, 49, 56, .19);
+}
+
+.little-polaroid .polaroid-image,
+.little-polaroid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background:
+        linear-gradient(135deg, #f2dfe5, #e7e0f2);
+}
+
+.little-polaroid .polaroid-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, #f5dfe5, #e8e1f2);
+    color: #b27e94;
+    font-size: 35px;
+}
+
+.little-polaroid .polaroid-caption {
+    display: block;
+    padding: 15px 4px 0;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.little-polaroid .polaroid-extra {
+    display: none;
+    padding: 8px 5px 0;
+    color: #a47789;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.little-polaroid.polaroid-open .polaroid-extra {
+    display: block;
+    animation: noteReveal .4s ease both;
+}
+
+/* =========================================
+   PAGE 4 — OUR LITTLE FUTURE CHECKLIST
+========================================= */
+
+.future-list {
+    max-width: 650px;
+    margin: 35px auto;
+    padding: 25px;
+    background: #f3f5ec;
+    border: 1px solid #d9e0d1;
+    box-shadow: 4px 8px 18px rgba(70, 90, 65, .07);
+}
+
+.future-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 8px;
+    border-bottom: 1px dashed #cbd4c1;
+    color: #64715f;
+    font-size: 15px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.future-item:last-child {
+    border-bottom: 0;
+}
+
+.future-item input {
+    appearance: none;
+    flex: 0 0 19px;
+    width: 19px;
+    height: 19px;
+    border: 1.5px solid #a6b69b;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+.future-item input:checked {
+    background: #a8b99e;
+    border-color: #a8b99e;
+}
+
+.future-item input:checked::after {
+    content: "✓";
+    position: absolute;
+    inset: -2px 0 0;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}
+
+.future-item:has(input:checked) {
+    color: #9b9d8e;
+    text-decoration: line-through;
+}
+
+/* =========================================
+   PAGE 5 — FUTURE NOTES
+========================================= */
+
+.future-notes {
+    max-width: 720px;
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.future-note {
+    min-height: 190px;
+    position: relative;
+    padding: 20px 14px;
+    border: 1px solid #dfc5cb;
+    background: #fff0ed;
+    color: #806170;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 3px 7px 15px rgba(100, 70, 80, .08);
+    transition: .35s ease;
+    transform: rotate(-1deg);
+}
+
+.future-note:nth-child(2) {
+    background: #f1edfa;
+    border-color: #d2c5e4;
+    transform: rotate(1deg);
+}
+
+.future-note:nth-child(3) {
+    background: #f0f5ec;
+    border-color: #d0ddc7;
+    transform: rotate(-1.5deg);
+}
+
+.future-note:hover {
+    transform: translateY(-5px) rotate(0);
+}
+
+.future-note .note-inside {
+    display: none;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px dashed currentColor;
+    font-size: 14px;
+}
+
+.future-note.note-unfolded .note-inside {
+    display: block;
+    animation: noteReveal .5s ease both;
+}
+
+.future-ending {
+    max-width: 620px;
+    margin: 45px auto 10px;
+    text-align: center;
+    color: #a36d83;
+    font-size: clamp(17px, 3vw, 22px);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+
+
+/* =========================================
+   BOOK CONTROLS — UPDATED
+========================================= */
+
+.scrapbook-controls {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 22px 0 12px;
+}
+
+#bookPrevious,
+#bookNext {
+    min-width: 125px;
+    padding: 12px 20px;
+    border: 1px solid #c9829a;
+    border-radius: 30px;
+    background: #c9829a;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    box-shadow: 0 5px 15px rgba(172, 104, 130, .18);
+    transition: all .25s ease;
+}
+
+#bookPrevious:hover:not(:disabled),
+#bookNext:hover:not(:disabled) {
+    background: #ae6d87;
+    border-color: #ae6d87;
+    transform: translateY(-3px);
+}
+
+#bookPrevious:disabled,
+#bookNext:disabled {
+    background: #e9dfe2;
+    border-color: #e9dfe2;
+    color: #a99ba0;
+    opacity: .55;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+#scrapbookPageNumber {
+    color: #a98b96;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+#bookDots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+#bookDots button {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #ddc6ce;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+#bookDots button.active {
+    width: 24px;
+    border-radius: 10px;
+    background: #bd8298;
+}
+
+#closeScrapbook {
+    display: block;
+    margin: 20px auto 25px;
+    background: #8f829e;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 650px) {
+    .scrapbook-cover {
+        min-height: 70vh;
+        margin: 8vh auto;
+        padding: 35px 23px;
+    }
+
+    #scrapbookBook {
+        width: 94%;
+        margin: 2vh auto 25px;
+        padding: 9px;
+    }
+
+    #scrapbookBook::before {
+        display: none;
+    }
+
+    .scrapbook-page {
+        min-height: 560px;
+        padding: 28px 15px;
+    }
+
+    .notice-notes {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .notice-note {
+        min-height: 95px;
+        padding: 16px;
+    }
+
+    /* Actual dictionary HTML classes */
+    .dictionary-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .dictionary-column {
+        padding: 10px 4px;
+    }
+
+    .dictionary-heading h3 {
+        font-size: 15px;
+    }
+
+    .dictionary-heading small {
+        font-size: 10px;
+    }
+
+    .nickname-item {
+        font-size: 11px;
+        padding: 9px 2px;
+    }
+
+    /* Actual photo gallery class */
+    .polaroid-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .little-polaroid {
+        padding: 8px 8px 15px;
+    }
+
+    .little-polaroid .polaroid-caption {
+        font-size: 12px;
+    }
+
+    .future-list {
+        padding: 15px 10px;
+    }
+
+    .future-item {
+        font-size: 13px;
+    }
+
+    /* Actual folded notes class */
+    .folded-notes {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .future-note {
+        min-height: 120px;
+    }
+
+    .scrapbook-controls {
+        gap: 9px;
+    }
+
+    #bookPrevious,
+    #bookNext {
+        min-width: 105px;
+        padding: 11px 13px;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #little-things *,
+    #little-things *::before,
+    #little-things *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+
+/* =========================================
+   SCRAPBOOK CINEMATIC ANIMATIONS
+========================================= */
+
+/* Cover opening */
+
+#scrapbookCover {
+    transform-origin: left center;
+    transition:
+        transform 1s cubic-bezier(.68, -0.2, .25, 1),
+        opacity .8s ease,
+        filter .8s ease;
+}
+
+#scrapbookCover.cover-opening {
+    transform: perspective(1400px) rotateY(-100deg) scale(.88);
+    opacity: 0;
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+/* Book entrance */
+
+#scrapbookBook.book-opening {
+    animation: bookReveal 1.1s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+@keyframes bookReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(.88) rotateX(8deg);
+        filter: blur(8px);
+    }
+    65% {
+        opacity: 1;
+        transform: translateY(-7px) scale(1.015) rotateX(0);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Realistic page turn */
+
+.scrapbook-page {
+    transform-origin: left center;
+    backface-visibility: hidden;
+}
+
+.scrapbook-page.page-turn-next {
+    animation: turnNext .65s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+.scrapbook-page.page-turn-previous {
+    animation: turnPrevious .65s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+@keyframes turnNext {
+    0% {
+        opacity: 0;
+        transform: perspective(1200px) rotateY(-16deg) translateX(35px);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(1200px) rotateY(0) translateX(0);
+    }
+}
+
+@keyframes turnPrevious {
+    0% {
+        opacity: 0;
+        transform: perspective(1200px) rotateY(16deg) translateX(-35px);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(1200px) rotateY(0) translateX(0);
+    }
+}
+
+/* Little notes reveal */
+
+.notice-note {
+    transition:
+        transform .4s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .4s ease,
+        background .4s ease;
+}
+
+.notice-note.note-open {
+    transform: translateY(-5px) rotate(0deg) scale(1.025);
+    box-shadow: 0 12px 24px rgba(100, 70, 80, .14);
+}
+
+/* Nickname bounce */
+
+.nickname-item.nickname-selected {
+    animation: nicknamePop .4s ease;
+}
+
+@keyframes nicknamePop {
+    0% { transform: scale(1); }
+    45% { transform: scale(1.12) rotate(-2deg); }
+    100% { transform: scale(1.04); }
+}
+
+/* Polaroid lift */
+
+.little-polaroid.polaroid-open {
+    animation: polaroidLift .5s ease both;
+}
+
+@keyframes polaroidLift {
+    0% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-13px) rotate(1deg); }
+    100% { transform: translateY(-7px) rotate(0); }
+}
+
+/* Fold-out future notes */
+
+.future-note .note-inside {
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-8px);
+    transition:
+        max-height .7s ease,
+        opacity .5s ease,
+        transform .5s ease,
+        padding .5s ease;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.future-note.note-unfolded .note-inside {
+    max-height: 250px;
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: 12px;
+    border-top: 1px dashed currentColor;
+}
+
+/* Decorative floating flowers */
+
+.scrapbook-flower {
+    animation: scrapbookFloat 6s ease-in-out infinite;
+}
+
+.scrapbook-flower:nth-of-type(2) {
+    animation-delay: -2s;
+}
+
+.scrapbook-flower:nth-of-type(3) {
+    animation-delay: -4s;
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    #scrapbookCover,
+    #scrapbookBook,
+    .scrapbook-page,
+    .notice-note,
+    .nickname-item,
+    .little-polaroid,
+    .future-note,
+    .scrapbook-flower {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+
+/* =========================================
+   MOBILE DICTIONARY & PAGE OVERFLOW FIX
+========================================= */
+
+/* Let the scrapbook grow with its content */
+#scrapbookBook {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.scrapbook-page {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    padding-bottom: 55px;
+}
+
+/* Keep both dictionary columns side by side */
+.nickname-columns {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: start;
+    gap: 12px;
+    width: 100%;
+    margin: 25px auto;
+}
+
+.nickname-column {
+    min-width: 0;
+    padding: 14px 7px;
+}
+
+.nickname-column h3 {
+    font-size: 15px;
+}
+
+.nickname-item {
+    font-size: 12px;
+    padding: 9px 2px;
+    overflow-wrap: anywhere;
+}
+
+/* Give the book more breathing room */
+#scrapbookBook {
+    margin-bottom: 35px;
+}
+
+.scrapbook-controls {
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
+
+#closeScrapbook {
+    margin-bottom: 20px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 650px) {
+    #scrapbookBook {
+        width: 94%;
+        padding: 8px;
+    }
+
+    .scrapbook-page {
+        padding: 25px 12px 50px;
+    }
+
+    .nickname-columns {
+        gap: 8px;
+    }
+
+    .nickname-column {
+        padding: 12px 5px;
+    }
+
+    .nickname-column h3 {
+        font-size: 14px;
+    }
+
+    .nickname-item {
+        font-size: 11px;
+        padding: 9px 1px;
+    }
+
+    .dictionary-footer {
+        font-size: 12px;
+        line-height: 1.7;
+        padding: 0 8px;
+    }
+}
+
+
+
+/* =========================================
+   OUR LITTLE DICTIONARY — CORRECT LAYOUT
+========================================= */
+
+.dictionary-layout {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: start;
+    gap: 18px;
+    width: 100%;
+    max-width: 680px;
+    margin: 28px auto;
+}
+
+.dictionary-column {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+    padding: 12px 8px;
+    background: rgba(255, 255, 255, 0.38);
+    border-radius: 12px;
+}
+
+.dictionary-heading {
+    margin-bottom: 12px;
+}
+
+.dictionary-heading h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.dictionary-heading small {
+    display: block;
+    font-size: 11px;
+    opacity: .7;
+}
+
+.nickname-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nickname-item {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 3px;
+    font-size: 13px;
+    text-align: center;
+    overflow-wrap: anywhere;
+    border: 0;
+    border-bottom: 1px dashed rgba(150, 110, 120, .2);
+    background: transparent;
+    cursor: pointer;
+}
+
+.nickname-item.nickname-selected {
+    color: #bd718e;
+    background: rgba(235, 190, 205, .2);
+    border-radius: 7px;
+}
+
+.dictionary-footer {
+    text-align: center;
+    margin: 25px auto 10px;
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+/* Mobile dictionary */
+@media (max-width: 650px) {
+    .dictionary-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px;
+        margin: 18px auto;
+    }
+
+    .dictionary-column {
+        padding: 10px 4px;
+    }
+
+    .dictionary-heading h3 {
+        font-size: 15px;
+    }
+
+    .dictionary-heading small {
+        font-size: 10px;
+    }
+
+    .nickname-item {
+        font-size: 11px;
+        padding: 9px 1px;
+    }
+
+    .dictionary-footer {
+        font-size: 11px;
+        margin-top: 18px;
+    }
+}
+ 
+
+
+/* =========================================
+   REDMI 9A — SCRAPBOOK MOBILE ALIGNMENT
+========================================= */
+
+@media (max-width: 650px) {
+
+    .scrapbook-book {
+        width: 94%;
+        max-width: 100%;
+        margin: 15px auto 30px;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+    .scrapbook-page {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 25px 15px;
+        overflow: visible;
+    }
+
+    .scrapbook-page h2 {
+        font-size: clamp(23px, 6vw, 29px);
+        line-height: 1.35;
+        text-align: center;
+    }
+
+    .book-page-subtitle {
+        font-size: 13px;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    /* Notice cards */
+
+    .notice-notes {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        width: 100%;
+        margin: 22px auto;
+    }
+
+    .notice-note {
+        width: 100%;
+        min-width: 0;
+        min-height: 110px;
+        box-sizing: border-box;
+        padding: 17px;
+        text-align: left;
+    }
+
+    .notice-note strong,
+    .notice-note .note-preview,
+    .notice-note .note-hidden {
+        display: block;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .notice-note .note-preview {
+        margin-top: 5px;
+    }
+
+    /* Book navigation */
+
+    .scrapbook-controls {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 5px;
+        gap: 10px;
+    }
+
+    .scrapbook-controls button {
+        max-width: 45%;
+    }
+
+    /* Chapter navigation */
+
+    .chapter-navigation {
+        gap: 10px;
+        flex-wrap: wrap;
+        padding: 15px 10px;
+    }
+
+    .chapter-btn {
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+
+
+
+/* =========================================
+   FIX — SCRAPBOOK CHAPTER NAVIGATION
+========================================= */
+
+@media (max-width: 650px) {
+
+    #little-things .chapter-navigation {
+        position: relative !important;
+        inset: auto !important;
+        transform: none !important;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        margin: 35px auto 20px !important;
+        padding: 15px 12px !important;
+
+        gap: 12px;
+        z-index: 2;
+        background: transparent;
+    }
+
+    #little-things .chapter-navigation .chapter-btn {
+        position: relative !important;
+        width: min(100%, 280px);
+        margin: 0 !important;
+        transform: none !important;
+    }
+
+    #little-things .scrapbook-book {
+        position: relative;
+        z-index: 3;
+    }
+
+    #little-things .scrapbook-bottom-note {
+        position: relative;
+        margin: 20px auto;
+        text-align: center;
+    }
+}
+
+
+
+/* =========================================
+   FINAL FIX — SCRAPBOOK MOBILE LAYOUT
+========================================= */
+
+@media (max-width: 650px) {
+
+    /* Keep the scrapbook in normal document flow */
+
+    #little-things .scrapbook-book {
+        position: relative !important;
+        display: block;
+        width: 94%;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: visible !important;
+        margin: 15px auto 25px !important;
+        opacity: 1 !important;
+        transform: none;
+    }
+
+    /* Keep the active page readable */
+
+    #little-things .scrapbook-page.active {
+        position: relative !important;
+        width: 100%;
+        height: auto !important;
+        min-height: 560px;
+        opacity: 1 !important;
+        visibility: visible !important;
+        overflow: visible !important;
+        background-color: #fffdf9;
+        z-index: 1;
+    }
+
+    /* Scrapbook controls stay inside the book */
+
+    #little-things .scrapbook-controls {
+        position: relative !important;
+        display: flex !important;
+        width: 100%;
+        margin: 20px auto 10px !important;
+        padding: 15px 5px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 5;
+        background: transparent;
+    }
+
+    #little-things #bookNext,
+    #little-things #bookPrevious {
+        position: relative !important;
+        opacity: 1;
+        z-index: 6;
+    }
+
+    /* Bottom note belongs after the scrapbook */
+
+    #little-things .scrapbook-bottom-note {
+        position: relative !important;
+        display: block;
+        width: 100%;
+        margin: 20px auto !important;
+        text-align: center;
+        opacity: 1 !important;
+        z-index: 1;
+    }
+
+    /* Chapter navigation must NOT float over scrapbook */
+
+    #little-things > .chapter-navigation {
+        position: relative !important;
+        display: flex !important;
+        inset: auto !important;
+        bottom: auto !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+
+        width: 100%;
+        height: auto !important;
+        margin: 25px auto 15px !important;
+        padding: 15px 10px !important;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 2;
+        background: transparent;
+    }
+
+    #little-things > .chapter-navigation .chapter-btn {
+        position: relative !important;
+        width: min(100%, 280px);
+        margin: 0 !important;
+        transform: none !important;
+    }
+
+    /* Page number stays at the end */
+
+    #little-things > .page-number {
+        position: relative !important;
+        margin: 15px auto 25px !important;
+    }
+}
+
+
+
+/* =========================================
+   FUTURE NOTES — CLEAN MOBILE ALIGNMENT
+========================================= */
+
+.future-note-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.future-note-number {
+    font-size: 13px;
+    letter-spacing: 2px;
+    opacity: .75;
+}
+
+.future-note-title {
+    display: block;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.future-note-front b {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #bd8298;
+}
+
+@media (max-width: 650px) {
+    .future-note {
+        min-height: 150px;
+        padding: 20px 14px;
+        box-sizing: border-box;
+    }
+
+    .future-note-title {
+        font-size: 17px;
+    }
+
+    .future-note-front b {
+        font-size: 12px;
+    }
+}
+
+
+
+/* =========================================
+   OUR LITTLE BUCKET LIST — INTERACTIVE
+========================================= */
+
+.future-choice-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 145px;
+    align-items: start;
+    gap: 18px;
+    max-width: 850px;
+    margin: 25px auto;
+}
+
+.future-list {
+    min-width: 0;
+}
+
+.future-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 13px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(190, 135, 155, .22);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .65);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.future-item > input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.future-item > span:not(.custom-check):not(.future-icon) {
+    flex: 1;
+    line-height: 1.6;
+}
+
+.future-item .custom-check {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid #c58da3;
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    transition: .3s ease;
+}
+
+.future-item.is-selected {
+    background: #fff0f5;
+    border-color: #d58da9;
+    box-shadow: 0 5px 16px rgba(190, 120, 150, .12);
+}
+
+.future-item.is-selected .custom-check {
+    background: #c9829a;
+    border-color: #c9829a;
+}
+
+.future-item.is-selected .custom-check::after {
+    content: "✓";
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.future-item .future-icon {
+    flex-shrink: 0;
+}
+
+/* Side progress panel */
+
+.future-progress {
+    position: sticky;
+    top: 20px;
+    padding: 17px 11px;
+    border-radius: 15px;
+    background: rgba(255, 244, 248, .9);
+    text-align: center;
+    border: 1px solid #ead1dc;
+}
+
+.progress-sparkle {
+    display: block;
+    font-size: 25px;
+    color: #c9829a;
+    margin-bottom: 8px;
+}
+
+.future-progress strong,
+.future-progress small,
+#futureProgressText {
+    display: block;
+    line-height: 1.5;
+}
+
+.future-progress strong {
+    font-size: 13px;
+}
+
+#futureProgressText {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #a96f88;
+    font-weight: bold;
+}
+
+.future-progress small {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #947b87;
+}
+
+/* Animated confetti progress bar */
+
+.progress-track {
+    width: 100%;
+    height: 115px;
+    margin: 13px auto 0;
+    border-radius: 15px;
+    background: #f0e0e7;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+.progress-fill {
+    width: 100%;
+    height: 0%;
+    border-radius: 12px;
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #e9a5bd 0 8px,
+            #c9a9e4 8px 16px,
+            #f4d18e 16px 24px,
+            #a9d5c0 24px 32px
+        );
+    transition: height .6s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Celebration overlay */
+
+.bucket-celebration {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.celebration-piece {
+    position: absolute;
+    top: -30px;
+    left: var(--left);
+    width: var(--size);
+    height: calc(var(--size) * 1.5);
+    background: var(--piece-color);
+    border-radius: 3px;
+    animation: bucketFall var(--duration) linear var(--delay) forwards;
+}
+
+.celebration-balloon {
+    position: absolute;
+    bottom: -140px;
+    left: var(--left);
+    width: 38px;
+    height: 49px;
+    border-radius: 50% 50% 45% 45%;
+    background: var(--balloon-color);
+    animation: balloonRise var(--duration) ease-in var(--delay) forwards;
+}
+
+.celebration-balloon::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 48px;
+    background: rgba(120, 100, 120, .5);
+    top: 47px;
+    left: 50%;
+}
+
+.celebration-ribbon {
+    position: absolute;
+    top: -80px;
+    left: var(--left);
+    width: 9px;
+    height: 85px;
+    border-radius: 10px;
+    background: var(--ribbon-color);
+    animation: ribbonFall var(--duration) ease-in var(--delay) forwards;
+}
+
+@keyframes bucketFall {
+    to {
+        transform: translate3d(var(--drift), 110vh, 0) rotate(850deg);
+        opacity: .9;
+    }
+}
+
+@keyframes balloonRise {
+    to {
+        transform: translateY(-125vh) translateX(35px);
+    }
+}
+
+@keyframes ribbonFall {
+    to {
+        transform: translateY(115vh) rotate(550deg);
+    }
+}
+
+@media (max-width: 650px) {
+    .future-choice-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .future-progress {
+        position: relative;
+        top: auto;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        column-gap: 12px;
+        text-align: left;
+        padding: 12px;
+    }
+
+    .progress-sparkle {
+        grid-row: span 2;
+        margin: 0;
+    }
+
+    .progress-track {
+        grid-column: 1 / -1;
+        height: 13px;
+        margin-top: 10px;
+    }
+
+    .progress-fill {
+        width: 0%;
+        height: 100%;
+        transition: width .6s ease;
+    }
+
+    #futureProgressText,
+    .future-progress small {
+        grid-column: 1 / -1;
+        margin-top: 7px;
+    }
+
+    .future-item {
+        padding: 13px 10px;
+    }
+}
+
+
+
+/* =========================================
+   NEW YEAR 2027 TIME LOCK
+========================================= */
+
+.time-lock {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 24px;
+    overflow-y: auto;
+    color: #fff7fb;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 50% 45%,
+            rgba(105, 70, 145, 0.28),
+            transparent 55%),
+        radial-gradient(ellipse at 15% 85%,
+            rgba(54, 103, 104, 0.16),
+            transparent 45%),
+        linear-gradient(145deg, #090713, #171023 55%, #090a13);
+}
+
+.time-lock::before,
+.time-lock::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+.time-lock::before {
+    top: -100px;
+    left: -90px;
+    background: #9b65d3;
+}
+
+.time-lock::after {
+    right: -100px;
+    bottom: -100px;
+    background: #398d83;
+}
+
+.lock-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    animation: lockContentAppear 1.5s ease both;
+}
+
+@keyframes lockContentAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lock-symbol {
+    margin-bottom: 20px;
+    color: #e8c8f5;
+    font-size: 34px;
+    animation: lockStarGlow 3s ease-in-out infinite;
+}
+
+@keyframes lockStarGlow {
+    0%, 100% {
+        opacity: 0.65;
+        text-shadow: 0 0 10px #c69be8;
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 25px #e6bfff;
+    }
+}
+
+.lock-eyebrow {
+    color: #c5a6d8;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+
+.time-lock h1 {
+    color: #fff3fa;
+    font-family: inherit;
+    font-size: clamp(32px, 6vw, 54px);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0 0 18px;
+}
+
+.lock-description {
+    max-width: 430px;
+    margin: 0 auto 38px;
+    color: #c5b9cf;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* COUNTDOWN */
+
+.lock-countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(12px, 4vw, 30px);
+    margin: 35px auto;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    min-width: 55px;
+}
+
+.countdown-unit span {
+    color: #f4dff9;
+    font-size: clamp(28px, 6vw, 43px);
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 18px rgba(205, 159, 239, 0.4);
+}
+
+.countdown-unit small {
+    color: #a99ab9;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* PASSCODE */
+
+.passcode-area {
+    margin: 40px auto 0;
+    animation: lockContentAppear 1s ease both;
+}
+
+.passcode-area[hidden] {
+    display: none !important;
+}
+
+.passcode-question {
+    color: #f4d9ed;
+    font-size: clamp(17px, 4vw, 21px);
+    margin-bottom: 10px;
+}
+
+.passcode-instruction {
+    color: #a99ab9;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.passcode-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(5px, 1.8vw, 11px);
+    width: 100%;
+    margin: 0 auto 20px;
+}
+
+
+/* =========================================
+   GALAXY STYLE PASSCODE DIGITS
+========================================= */
+
+.passcode-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(6px, 2vw, 12px);
+    width: 100%;
+    margin: 0 auto 22px;
+}
+
+.passcode-digit {
+    box-sizing: border-box;
+    width: clamp(34px, 8vw, 48px);
+    height: clamp(34px, 8vw, 48px);
+    min-width: 0;
+    padding: 0;
+
+    border: 1px solid rgba(211, 174, 229, 0.55);
+    border-radius: 50%;
+
+    outline: none;
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255, 255, 255, 0.13),
+            rgba(142, 100, 175, 0.13) 55%,
+            rgba(28, 20, 43, 0.75)
+        );
+
+    color: #f3d9ff;
+    font-family: inherit;
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 500;
+    text-align: center;
+    caret-color: #e8c8f5;
+
+    box-shadow:
+        0 0 10px rgba(177, 127, 213, 0.12),
+        inset 0 0 9px rgba(224, 187, 247, 0.06);
+
+    transition: all 0.3s ease;
+}
+
+.passcode-digit:focus {
+    border-color: #e5baf8;
+    background:
+        radial-gradient(
+            circle,
+            rgba(195, 143, 225, 0.3),
+            rgba(76, 49, 105, 0.55)
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 0 8px rgba(217, 172, 247, 0.45),
+        0 0 22px rgba(178, 119, 218, 0.25),
+        inset 0 0 12px rgba(255, 255, 255, 0.1);
+
+    transform: scale(1.09);
+}
+
+.passcode-digit:not(:placeholder-shown) {
+    color: #f7d9ff;
+}
+
+@media (max-width: 480px) {
+    .passcode-boxes {
+        gap: 6px;
+    }
+
+    .passcode-digit {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
+
+.passcode-error {
+    min-height: 20px;
+    color: #f1a9c4;
+    font-size: 12px;
+    margin: 8px 0 16px;
+}
+
+.unlock-button {
+    display: block;
+    margin: 0 auto;
+    padding: 13px 30px;
+    border: 1px solid rgba(225, 193, 238, 0.6);
+    border-radius: 30px;
+    background: linear-gradient(135deg, #9876b2, #b77c9d);
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(153, 103, 181, 0.2);
+    transition: 0.3s ease;
+}
+
+.unlock-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(185, 135, 211, 0.35);
+}
+
+/* FOOTER */
+
+.lock-footer {
+    margin-top: 45px;
+    color: #95869f;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    .time-lock {
+        padding: 20px 14px;
+    }
+
+    .lock-eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .lock-description {
+        font-size: 13px;
+        margin-bottom: 28px;
+    }
+
+    .lock-countdown {
+        gap: 10px;
+    }
+
+    .countdown-unit {
+        min-width: 48px;
+    }
+
+    .countdown-unit small {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .passcode-boxes {
+        gap: 5px;
+    }
+
+    .passcode-digit {
+        border-radius: 6px;
+    }
+
+    .lock-footer {
+        font-size: 10px;
+        margin-top: 35px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lock-content,
+    .lock-symbol,
+    .passcode-area {
+        animation: none !important;
+    }
+
+    .passcode-digit,
+    .unlock-button {
+        transition: none !important;
+    }
+}
+
+
