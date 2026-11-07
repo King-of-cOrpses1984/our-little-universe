@@ -449,18 +449,21 @@
 
             </div>
 
-            <div class="memory-intro">
+            <!-- MEMORY WALL INTRO -->
+<div class="memory-intro">
+    <span class="memory-sparkle">✦</span>
 
-                <span class="memory-sparkle">✦</span>
+    <h3>Our Memory Wall</h3>
 
-                <h3>Our Memory Wall</h3>
+    <p>A little collection of moments that I never want to forget.</p>
+</div>
 
-                <p>
-                    A little collection of moments
-                    that I never want to forget.
-                </p>
+<!-- ZIP FOLDER INSTRUCTION -->
+<p class="memory-zip-hint">
+    ✉ Some memories are packed away...
+    Tap a little folder to unzip and relive them ♡
+</p>
 
-            </div>
 
             <div class="memory-album" id="memoryAlbum" aria-live="polite">
                 <div class="memory-gallery" id="memoryGallery"></div>
@@ -477,6 +480,44 @@
                 <h3>And there are a thousand more...</h3>
                 <p>These are only a few pieces of our little universe.</p>
             </div>
+
+            <!-- PHOTO MEMORY VIEWER -->
+<div
+    class="memory-photo-viewer"
+    id="memoryPhotoViewer"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-label="Photo memory"
+>
+    <button
+        type="button"
+        class="memory-photo-close"
+        id="memoryPhotoClose"
+        aria-label="Close photo"
+    >×</button>
+
+    <div class="memory-photo-viewer-content">
+
+        <div class="memory-photo-viewer-image-wrap">
+            <img id="memoryPhotoDisplay" src="" alt="">
+        </div>
+
+        <div class="memory-photo-viewer-caption">
+            <span id="memoryPhotoLabel"></span>
+            <h3 id="memoryPhotoTitle"></h3>
+        </div>
+
+        <button
+            type="button"
+            class="memory-photo-back"
+            id="memoryPhotoBack"
+        >
+            ← Back to memories
+        </button>
+
+    </div>
+</div>
 
             <div class="memory-video-viewer" id="memoryVideoViewer" hidden role="dialog" aria-modal="true" aria-label="Memory video player">
                 <button type="button" class="memory-video-close" id="memoryVideoClose" aria-label="Close video">×</button>

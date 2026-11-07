@@ -4519,7 +4519,7 @@ and (max-width: 900px) {
 .memory-video-viewer { position:fixed; inset:0; z-index:9999; background:#100c18f2; display:flex; align-items:center; justify-content:center; padding:60px 16px 20px; }
 .memory-video-viewer[hidden] { display:none; }
 .memory-video-viewer video { max-width:min(900px,100%); max-height:100%; width:auto; height:auto; object-fit:contain; }
-.memory-video-close { position:absolute; top:16px; right:20px; width:42px; height:42px; border:1px solid #ffffff80; border-radius:50%; background:#ffffff18; color:white; font-size:28px; cursor:pointer; }
+.memor1y-video-close { position:absolute; top:16px; right:20px; width:42px; height:42px; border:1px solid #ffffff80; border-radius:50%; background:#ffffff18; color:white; font-size:28px; cursor:pointer; }
 @media(max-width:650px) {
  .memory-section { padding:16px 12px 12px !important; }
  .memory-section .section-heading h2 { font-size:22px; }
@@ -4542,3 +4542,300 @@ and (max-width: 900px) {
  .memory-gallery { max-height:52vh; }
  .memory-section .memory-intro p { display:none; }
 }
+
+
+/* =========================================
+   MEMORY WALL — ZIP FOLDER PHOTO EXPERIENCE
+========================================= */
+
+.memory-section .memory-zip-hint {
+    display: block !important;
+    margin: 5px auto 10px !important;
+    color: #a27691;
+    font-size: clamp(10px, 1.1vw, 12px) !important;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: .2px;
+}
+
+.memory-zip-frame {
+    background: linear-gradient(145deg, #fff5fa, #f1e9ff);
+    border: 1px solid #ead8e8;
+    padding: 10px;
+}
+
+.memory-zip-cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 130px;
+    border: 0;
+    border-radius: 9px;
+    background:
+        radial-gradient(circle at 80% 20%, #ffffffa8, transparent 35%),
+        linear-gradient(145deg, #f9dce9, #e7dcfa 55%, #f8e9e4);
+    color: #694b6c;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.memory-zip-cover:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 10px 25px #72507825;
+}
+
+.memory-zip-cover:focus-visible {
+    outline: 3px solid #bd83ad;
+    outline-offset: 3px;
+}
+
+.memory-zip-folder {
+    position: relative;
+    width: 76px;
+    height: 55px;
+    border: 2px solid #c18eae;
+    border-radius: 7px;
+    background: linear-gradient(145deg, #fff9fc, #f5d9e9);
+    box-shadow: 0 7px 15px #805b7920;
+    display: grid;
+    place-items: center;
+    animation: zipFolderFloat 3s ease-in-out infinite;
+}
+
+.memory-zip-folder::before {
+    content: "";
+    position: absolute;
+    width: 31px;
+    height: 9px;
+    left: 5px;
+    top: -9px;
+    border: 2px solid #c18eae;
+    border-bottom: 0;
+    border-radius: 6px 6px 0 0;
+    background: #f8e5f0;
+}
+
+.memory-zip-folder::after {
+    content: "♡";
+    color: #c17da2;
+    font-size: 24px;
+}
+
+.memory-zip-cover small {
+    color: #8c6687;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.memory-zip-cover strong {
+    color: #634968;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(12px, 1.3vw, 16px);
+    font-weight: 500;
+}
+
+.memory-zip-cover .zip-tap-hint {
+    color: #9b7898;
+    font-size: 9px;
+    letter-spacing: .5px;
+}
+
+@keyframes zipFolderFloat {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+/* PHOTO VIEWER */
+
+.memory-photo-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 65px 18px 22px;
+    background:
+        radial-gradient(circle at 50% 35%, #49344f, #17101f 75%);
+    opacity: 1;
+    animation: photoViewerFade .3s ease both;
+}
+
+.memory-photo-viewer[hidden] {
+    display: none;
+}
+
+@keyframes photoViewerFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.memory-photo-viewer-content {
+    width: min(900px, 100%);
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    text-align: center;
+}
+
+.memory-photo-viewer-image-wrap {
+    width: 100%;
+    height: min(68vh, 650px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: 1px solid #ffffff30;
+    border-radius: 12px;
+    background: #ffffff0c;
+    box-shadow: 0 20px 65px #0007;
+    animation: photoUnzipReveal .65s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.memory-photo-viewer-image-wrap img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 8px 30px #0005;
+}
+
+@keyframes photoUnzipReveal {
+    0% {
+        opacity: 0;
+        transform: scale(.78) rotate(-3deg);
+        clip-path: inset(50% 0 50% 0);
+    }
+    65% {
+        opacity: 1;
+        transform: scale(1.02) rotate(1deg);
+        clip-path: inset(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+        clip-path: inset(0);
+    }
+}
+
+.memory-photo-viewer-caption span {
+    color: #e8b5d0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.memory-photo-viewer-caption h3 {
+    margin-top: 3px;
+    color: #fff8fc;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(19px, 3vw, 27px);
+    font-weight: 500;
+}
+
+.memory-photo-close {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #ffffff70;
+    border-radius: 50%;
+    background: #ffffff18;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.memory-photo-back {
+    margin-top: 3px;
+    padding: 10px 23px;
+    border: 1px solid #e7b8d0;
+    border-radius: 30px;
+    background: #fff8fc;
+    color: #68465f;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.memory-photo-back:hover {
+    transform: translateY(-2px);
+    background: #f8e5f0;
+}
+
+@media (max-width: 650px) {
+    .memory-zip-frame {
+        padding: 6px;
+    }
+
+    .memory-zip-cover {
+        min-height: 100px;
+        gap: 5px;
+    }
+
+    .memory-zip-folder {
+        width: 59px;
+        height: 43px;
+    }
+
+    .memory-zip-folder::after {
+        font-size: 20px;
+    }
+
+    .memory-zip-cover small {
+        font-size: 7px;
+    }
+
+    .memory-zip-cover .zip-tap-hint {
+        font-size: 7px;
+    }
+
+    .memory-photo-viewer {
+        padding: 65px 10px 18px;
+    }
+
+    .memory-photo-viewer-image-wrap {
+        height: min(65vh, 560px);
+        padding: 7px;
+    }
+
+    .memory-photo-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .memory-photo-back {
+        padding: 9px 19px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .memory-zip-folder,
+    .memory-photo-viewer,
+    .memory-photo-viewer-image-wrap {
+        animation: none !important;
+    }
+
+    .memory-zip-cover,
+    .memory-photo-back {
+        transition: none !important;
+    }
+}
+
+
