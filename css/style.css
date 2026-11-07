@@ -4839,3 +4839,175 @@ and (max-width: 900px) {
 }
 
 
+/* =========================================
+   GALAXY — FLOATING COMETS
+========================================= */
+
+.galaxy-comets {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.galaxy-comet {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    box-shadow:
+        0 0 7px 2px #ffffff,
+        0 0 16px 5px #b9caff;
+}
+
+.galaxy-comet::after {
+    content: "";
+    position: absolute;
+    width: 95px;
+    height: 2px;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+    transform-origin: right center;
+    border-radius: 50%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #a8c7ff80,
+        #ffffff
+    );
+    filter: blur(1px);
+}
+
+/* COMET 1 */
+
+.comet-one {
+    top: 18%;
+    left: -15%;
+    animation: cometOne 8s linear infinite;
+}
+
+/* COMET 2 */
+
+.comet-two {
+    top: 65%;
+    left: -15%;
+    animation: cometTwo 11s linear infinite 3s;
+}
+
+.comet-two::after {
+    width: 75px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #e9baff90,
+        #ffffff
+    );
+}
+
+/* COMET 3 */
+
+.comet-three {
+    top: 38%;
+    left: 110%;
+    animation: cometThree 9s linear infinite 5s;
+}
+
+.comet-three::after {
+    right: auto;
+    left: 3px;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #b9a8ff90,
+        transparent
+    );
+}
+
+/* COMET 4 */
+
+.comet-four {
+    top: 85%;
+    left: -15%;
+    width: 3px;
+    height: 3px;
+    animation: cometFour 13s linear infinite 7s;
+}
+
+.comet-four::after {
+    width: 65px;
+    height: 1px;
+}
+
+/* MOVEMENT */
+
+@keyframes cometOne {
+    0% {
+        transform: translate(0, 0) rotate(25deg);
+        opacity: 0;
+    }
+    8% { opacity: 1; }
+    75% { opacity: 1; }
+    100% {
+        transform: translate(120vw, 65vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+@keyframes cometTwo {
+    0% {
+        transform: translate(0, 0) rotate(-18deg);
+        opacity: 0;
+    }
+    10% { opacity: .9; }
+    75% { opacity: .9; }
+    100% {
+        transform: translate(115vw, -35vh) rotate(-18deg);
+        opacity: 0;
+    }
+}
+
+@keyframes cometThree {
+    0% {
+        transform: translate(0, 0) rotate(155deg);
+        opacity: 0;
+    }
+    10% { opacity: .85; }
+    80% { opacity: .85; }
+    100% {
+        transform: translate(-120vw, 45vh) rotate(155deg);
+        opacity: 0;
+    }
+}
+
+@keyframes cometFour {
+    0% {
+        transform: translate(0, 0) rotate(12deg);
+        opacity: 0;
+    }
+    10% { opacity: .8; }
+    75% { opacity: .8; }
+    100% {
+        transform: translate(120vw, -55vh) rotate(12deg);
+        opacity: 0;
+    }
+}
+
+/* MOBILE + ACCESSIBILITY */
+
+@media (max-width: 650px) {
+    .galaxy-comet::after {
+        width: 55px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .galaxy-comet {
+        animation: none !important;
+        display: none;
+    }
+}
+
