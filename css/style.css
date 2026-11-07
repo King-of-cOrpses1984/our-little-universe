@@ -4367,3 +4367,178 @@ and (max-width: 900px) {
 }
 
 
+/* =========================================
+   SCRAPBOOK CONTROLS - MOBILE FIX
+========================================= */
+
+@media (max-width: 650px) {
+
+    .scrapbook-controls {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        justify-content: stretch;
+        gap: 8px;
+        width: 100%;
+        padding: 18px 0 12px;
+        margin-top: 12px;
+    }
+
+    #bookPrevious {
+        grid-column: 1;
+        justify-self: stretch;
+    }
+
+    #bookDots {
+        grid-column: 2;
+        width: auto !important;
+        margin: 0 !important;
+        gap: 6px;
+        justify-content: center;
+        white-space: nowrap;
+    }
+
+    #bookNext {
+        grid-column: 3;
+        justify-self: stretch;
+    }
+
+    #bookPrevious,
+    #bookNext {
+        min-width: 0 !important;
+        width: 100%;
+        padding: 10px 5px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    #bookDots button {
+        width: 7px;
+        height: 7px;
+    }
+
+    #bookDots button.active {
+        width: 17px;
+    }
+}
+
+
+/* =========================================
+   CHAPTER 02 - MEMORY GALLERY VIEWPORT FIX
+========================================= */
+
+.memory-section {
+    justify-content: flex-start !important;
+    align-items: center !important;
+
+    padding-top: 45px !important;
+    padding-bottom: 40px !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.memory-section .section-heading {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.memory-intro {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.memory-gallery {
+    flex-shrink: 0;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.memory-ending {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.memory-section .chapter-navigation,
+.memory-section .page-number {
+    flex-shrink: 0;
+}
+
+@media (max-width: 650px) {
+    .memory-section {
+        padding: 30px 14px 35px !important;
+    }
+
+    .memory-gallery {
+        gap: 22px;
+        padding: 8px 3px;
+    }
+}
+
+
+
+
+
+/* =========================================
+   CHAPTER 02 — PAGED MEMORY ALBUM
+========================================= */
+.memory-section {
+    justify-content: flex-start !important;
+    overflow: hidden !important;
+    padding: clamp(14px, 2.5vh, 28px) clamp(14px, 4vw, 48px) 18px !important;
+}
+.memory-section .section-heading { flex: 0 0 auto; margin-bottom: 4px; }
+.memory-section .section-heading h2 { font-size: clamp(23px, 3vw, 34px); margin: 7px 0; }
+.memory-section .section-heading p { font-size: clamp(11px, 1.3vw, 14px); margin: 4px 0; }
+.memory-section .memory-intro { margin: 3px auto 8px; flex: 0 0 auto; }
+.memory-section .memory-sparkle { display:none; }
+.memory-section .memory-intro h3 { font-size: clamp(19px, 2vw, 25px); margin: 2px 0; }
+.memory-section .memory-intro p { margin: 2px 0; font-size: 11px; }
+.memory-album { width: min(900px, 100%); margin: 0 auto; flex: 1 1 auto; min-height: 0; display:flex; align-items:center; justify-content:center; }
+.memory-gallery { width:100%; height:100%; max-height: min(58vh, 570px); margin:0 auto; padding:8px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(0,1fr)); gap:clamp(9px,1.7vw,18px); }
+.memory-card { min-width:0; min-height:0; padding:clamp(6px,1vw,11px) clamp(6px,1vw,11px) 7px; display:flex; flex-direction:column; overflow:hidden; }
+.memory-card:nth-child(odd) { transform:rotate(-.6deg); }
+.memory-card:nth-child(even) { transform:rotate(.6deg); }
+.memory-photo-frame { flex:1 1 auto; min-height:0; width:100%; display:flex; align-items:center; justify-content:center; overflow:hidden; background:#f4edf2; border:1px solid #f1e5eb; }
+.memory-photo-frame img { display:block; width:100%; height:100%; object-fit:contain; object-position:center; }
+.memory-card.is-video .memory-photo-frame { position:relative; background:#21182b; }
+.memory-card.is-video .memory-photo-frame img { object-fit:contain; opacity:.88; }
+.memory-play { position:absolute; inset:0; margin:auto; width:54px; height:54px; border:1px solid #ffffffb8; border-radius:50%; background:#382541d9; color:white; font-size:23px; cursor:pointer; display:grid; place-items:center; box-shadow:0 4px 18px #0005; }
+.memory-caption { flex:0 0 auto; padding:6px 3px 0; text-align:center; }
+.memory-caption span { font-size:clamp(8px,.8vw,10px); letter-spacing:1px; }
+.memory-caption h3 { font-size:clamp(11px,1.2vw,16px); margin:3px 0 0; }
+.memory-caption p { display:none; }
+.memory-album-controls { flex:0 0 auto; width:min(900px,100%); display:flex; align-items:center; justify-content:center; gap:clamp(12px,3vw,32px); margin:5px auto 3px; }
+.memory-page-btn { border:1px solid #cda9bc; border-radius:30px; background:#fffafc; color:#63475d; padding:8px 17px; font:inherit; font-size:12px; cursor:pointer; }
+.memory-page-btn:disabled { opacity:.35; cursor:not-allowed; }
+.memory-page-label { color:#9b718e; font-size:10px; font-weight:700; letter-spacing:1.5px; white-space:nowrap; }
+.memory-ending { display:none; }
+.memory-section .chapter-navigation { flex:0 0 auto; margin-top:5px; }
+.memory-section .page-number { flex:0 0 auto; }
+.memory-video-viewer { position:fixed; inset:0; z-index:9999; background:#100c18f2; display:flex; align-items:center; justify-content:center; padding:60px 16px 20px; }
+.memory-video-viewer[hidden] { display:none; }
+.memory-video-viewer video { max-width:min(900px,100%); max-height:100%; width:auto; height:auto; object-fit:contain; }
+.memory-video-close { position:absolute; top:16px; right:20px; width:42px; height:42px; border:1px solid #ffffff80; border-radius:50%; background:#ffffff18; color:white; font-size:28px; cursor:pointer; }
+@media(max-width:650px) {
+ .memory-section { padding:16px 12px 12px !important; }
+ .memory-section .section-heading h2 { font-size:22px; }
+ .memory-section .section-heading p { max-width:340px; margin:4px auto; }
+ .memory-section .memory-intro { margin:2px auto 5px; }
+ .memory-gallery { max-height: min(58vh, 520px); padding:4px; gap:8px; }
+ .memory-card { padding:5px 5px 6px; }
+ .memory-caption { padding-top:5px; }
+ .memory-caption span { font-size:7px; letter-spacing:.6px; }
+ .memory-caption h3 { font-size:11px; }
+ .memory-play { width:42px; height:42px; font-size:19px; }
+ .memory-album-controls { gap:9px; margin:4px auto; }
+ .memory-page-btn { padding:7px 11px; font-size:10px; }
+ .memory-page-label { font-size:8px; letter-spacing:.8px; }
+ .memory-section .chapter-navigation { gap:8px; }
+ .memory-section .chapter-btn { padding:8px 10px; font-size:10px; }
+}
+@media(max-height:700px) {
+ .memory-section .section-heading h2 { font-size:21px; }
+ .memory-gallery { max-height:52vh; }
+ .memory-section .memory-intro p { display:none; }
+}

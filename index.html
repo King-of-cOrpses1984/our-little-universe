@@ -462,110 +462,25 @@
 
             </div>
 
-            <div class="memory-gallery">
-
-                <div class="memory-card memory-large">
-
-                    <div class="memory-image">
-                        <span>📷</span>
-                        <small>OUR FIRST MEMORY</small>
-                    </div>
-
-                    <div class="memory-caption">
-                        <span>01 · THE BEGINNING</span>
-                        <h3>A moment worth keeping</h3>
-                        <p>Some memories deserve their own little frame.</p>
-                    </div>
-
-                </div>
-
-                <div class="memory-card memory-tilt-left">
-
-                    <div class="memory-image">
-                        <span>♡</span>
-                        <small>ADD YOUR PHOTO</small>
-                    </div>
-
-                    <div class="memory-caption">
-                        <span>02 · A LITTLE MOMENT</span>
-                        <h3>One for the memories</h3>
-                        <p>A little piece of our story.</p>
-                    </div>
-
-                </div>
-
-                <div class="memory-card memory-tilt-right">
-
-                    <div class="memory-image">
-                        <span>🌷</span>
-                        <small>ADD YOUR PHOTO</small>
-                    </div>
-
-                    <div class="memory-caption">
-                        <span>03 · MY FAVOURITE</span>
-                        <h3>A day to remember</h3>
-                        <p>Because ordinary days can become special.</p>
-                    </div>
-
-                </div>
-
-                <div class="memory-card">
-
-                    <div class="memory-image">
-                        <span>✨</span>
-                        <small>ADD YOUR PHOTO</small>
-                    </div>
-
-                    <div class="memory-caption">
-                        <span>04 · LITTLE DETAILS</span>
-                        <h3>Frozen in time</h3>
-                        <p>A moment I wish I could replay.</p>
-                    </div>
-
-                </div>
-
-                <div class="memory-card memory-tilt-right">
-
-                    <div class="memory-image">
-                        <span>💗</span>
-                        <small>ADD YOUR PHOTO</small>
-                    </div>
-
-                    <div class="memory-caption">
-                        <span>05 · JUST US</span>
-                        <h3>Our little world</h3>
-                        <p>One more memory to keep close.</p>
-                    </div>
-
-                </div>
-
-                <div class="memory-card memory-tilt-left">
-
-                    <div class="memory-image">
-                        <span>🎞️</span>
-                        <small>ADD YOUR VIDEO</small>
-                    </div>
-
-                    <div class="memory-caption">
-                        <span>06 · A MOVING MEMORY</span>
-                        <h3>Not just a picture</h3>
-                        <p>Some moments are better when they move.</p>
-                    </div>
-
-                </div>
-
+            <div class="memory-album" id="memoryAlbum" aria-live="polite">
+                <div class="memory-gallery" id="memoryGallery"></div>
             </div>
 
-            <div class="memory-ending">
+            <div class="memory-album-controls" id="memoryAlbumControls">
+                <button type="button" id="memoryPrevious" class="memory-page-btn" disabled>← Previous</button>
+                <span id="memoryPageLabel" class="memory-page-label">PHOTO PAGE 1 / 3</span>
+                <button type="button" id="memoryNext" class="memory-page-btn">Next →</button>
+            </div>
 
+            <div class="memory-ending" id="memoryEnding">
                 <span>♡</span>
-
                 <h3>And there are a thousand more...</h3>
+                <p>These are only a few pieces of our little universe.</p>
+            </div>
 
-                <p>
-                    These are only a few pieces of our little universe.
-                </p>
-
+            <div class="memory-video-viewer" id="memoryVideoViewer" hidden role="dialog" aria-modal="true" aria-label="Memory video player">
+                <button type="button" class="memory-video-close" id="memoryVideoClose" aria-label="Close video">×</button>
+                <video id="memoryVideoPlayer" controls playsinline preload="metadata"></video>
             </div>
 
             <div class="chapter-navigation">

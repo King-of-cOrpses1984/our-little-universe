@@ -1095,4 +1095,94 @@ if (passcodeForm) {
 }
 
 
+    // =====================================
+    // CHAPTER 02 — PHOTO + VIDEO ALBUM
+    // =====================================
+    const memoryGallery = document.getElementById("memoryGallery");
+    const memoryPrevious = document.getElementById("memoryPrevious");
+    const memoryNext = document.getElementById("memoryNext");
+    const memoryPageLabel = document.getElementById("memoryPageLabel");
+    const memoryVideoViewer = document.getElementById("memoryVideoViewer");
+    const memoryVideoPlayer = document.getElementById("memoryVideoPlayer");
+    const memoryVideoClose = document.getElementById("memoryVideoClose");
+
+    if (memoryGallery && memoryPrevious && memoryNext && memoryPageLabel) {
+        const photoMemories = Array.from({ length: 11 }, (_, i) => ({
+            src: `images/memory-${String(i + 1).padStart(2, "0")}.jpeg`,
+            label: `PHOTO MEMORY ${String(i + 1).padStart(2, "0")}`,
+            title: ["A little piece of us", "A moment to keep", "One for the memories", "A day to remember", "Our little world", "A favourite moment", "Captured in time", "A memory worth keeping", "Little things, big feelings", "A moment together", "Forever in this frame"][i]
+        }));
+        const videoMemories = Array.from({ length: 7 }, (_, i) => ({
+            src: `videos/video-${String(i + 1).padStart(2, "0")}.mp4`,
+            poster: `videos/posters/video-${String(i + 1).padStart(2, "0")}.jpg`,
+            label: `VIDEO MEMORY ${String(i + 1).padStart(2, "0")}`,
+            title: `A memory in motion ${i + 1}`
+        }));
+        const albumPages = [];
+        for (let i = 0; i < photoMemories.length; i += 4) albumPages.push({ type: "photo", items: photoMemories.slice(i, i + 4) });
+        for (let i = 0; i < videoMemories.length; i += 4) albumPages.push({ type: "video", items: videoMemories.slice(i, i + 4) });
+        let albumPageIndex = 0;
+
+        function renderMemoryPage() {
+            const page = albumPages[albumPageIndex];
+            memoryGallery.replaceChildren();
+            page.items.forEach(item => {
+                const card = document.createElement("article");
+                card.className = `memory-card${page.type === "video" ? " is-video" : ""}`;
+                const frame = document.createElement("div");
+                frame.className = "memory-photo-frame";
+                const img = document.createElement("img");
+                img.src = page.type === "photo" ? item.src : item.poster;
+                img.alt = item.label;
+                img.loading = "lazy";
+                frame.appendChild(img);
+                if (page.type === "video") {
+                    const play = document.createElement("button");
+                    play.type = "button";
+                    play.className = "memory-play";
+                    play.setAttribute("aria-label", `Play ${item.label}`);
+                    play.textContent = "▶";
+                    play.addEventListener("click", () => openMemoryVideo(item.src));
+                    frame.appendChild(play);
+                }
+                const caption = document.createElement("div");
+                caption.className = "memory-caption";
+                const label = document.createElement("span");
+                label.textContent = item.label;
+                const title = document.createElement("h3");
+                title.textContent = item.title;
+                caption.append(label, title);
+                card.append(frame, caption);
+                memoryGallery.appendChild(card);
+            });
+            const pageTypeLabel = page.type === "photo" ? "PHOTO" : "VIDEO";
+            const pageNumber = page.type === "photo" ? albumPageIndex + 1 : albumPageIndex - 2;
+            const totalPages = page.type === "photo" ? 3 : 2;
+            memoryPageLabel.textContent = `${pageTypeLabel} PAGE ${pageNumber} / ${totalPages}`;
+            memoryPrevious.disabled = albumPageIndex === 0;
+            memoryNext.textContent = albumPageIndex === albumPages.length - 1 ? "Album end ♡" : "Next →";
+            memoryNext.disabled = albumPageIndex === albumPages.length - 1;
+        }
+        function openMemoryVideo(src) {
+            if (!memoryVideoViewer || !memoryVideoPlayer) return;
+            memoryVideoPlayer.src = src;
+            memoryVideoViewer.hidden = false;
+            memoryVideoPlayer.play().catch(() => {});
+        }
+        function closeMemoryVideo() {
+            if (!memoryVideoViewer || !memoryVideoPlayer) return;
+            memoryVideoPlayer.pause();
+            memoryVideoPlayer.removeAttribute("src");
+            memoryVideoPlayer.load();
+            memoryVideoViewer.hidden = true;
+        }
+        memoryPrevious.addEventListener("click", () => { if (albumPageIndex > 0) { albumPageIndex--; renderMemoryPage(); } });
+        memoryNext.addEventListener("click", () => { if (albumPageIndex < albumPages.length - 1) { albumPageIndex++; renderMemoryPage(); } });
+        if (memoryVideoClose) memoryVideoClose.addEventListener("click", closeMemoryVideo);
+        if (memoryVideoViewer) memoryVideoViewer.addEventListener("click", event => { if (event.target === memoryVideoViewer) closeMemoryVideo(); });
+        document.addEventListener("keydown", event => { if (event.key === "Escape" && memoryVideoViewer && !memoryVideoViewer.hidden) closeMemoryVideo(); });
+        renderMemoryPage();
+    }
+
+
 });
