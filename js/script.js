@@ -23,21 +23,27 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 
+    console.log("Registered pages:", [...pageMap.keys()]);
+    console.log("Playroom found:", pageMap.has("playroom"));
+
+
     function showPage(id) {
-        const nextPage = pageMap.get(id);
+    const nextPage = pageMap.get(id);
 
-        if (!nextPage) return;
+    if (!nextPage) return;
 
-        pages.forEach(page => {
-            page.classList.remove("chapter-active");
-            page.setAttribute("aria-hidden", "true");
-        });
+    pages.forEach(page => {
+        page.classList.remove("chapter-active");
+        page.setAttribute("aria-hidden", "true");
+    });
 
-        nextPage.classList.add("chapter-active");
-        nextPage.setAttribute("aria-hidden", "false");
-        nextPage.scrollTop = 0;
+    nextPage.classList.add("chapter-active");
+    nextPage.setAttribute("aria-hidden", "false");
 
-        history.replaceState(null, "", "#" + id);
+    nextPage.scrollTop = 0;
+    window.scrollTo(0, 0);
+
+    history.replaceState(null, "", "#" + id);
     }
 
     document.addEventListener("click", event => {
@@ -448,7 +454,7 @@ Well, you already know. ♡`
 
         currentPlanet = null;
 
-        showPage("letter");
+        showPage("playroom");
 
     });
 
@@ -1459,4 +1465,181 @@ if (passcodeForm) {
 
         renderMemoryPage();
     }
+
+
+    // =====================================
+    // CHAPTER 05 — MATCH OUR MEMORIES
+    // =====================================
+
+    const matchGameGrid = document.getElementById("matchGameGrid");
+    const matchPairs = document.getElementById("matchPairs");
+    const matchMoves = document.getElementById("matchMoves");
+    const matchFeedback = document.getElementById("matchGameFeedback");
+    const matchRestart = document.getElementById("matchGameRestart");
+    const matchComplete = document.getElementById("matchGameComplete");
+
+    if (
+        matchGameGrid &&
+        matchPairs &&
+        matchMoves &&
+        matchFeedback &&
+        matchRestart &&
+        matchComplete
+    ) {
+
+        const memorySymbols = [
+            "🌙", "🌷", "🎀", "⭐", "🧸", "💌"
+        ];
+
+        let firstCard = null;
+        let secondCard = null;
+        let lockBoard = false;
+        let foundPairs = 0;
+        let moves = 0;
+
+        function shuffleMemories() {
+            const shuffled = [...memorySymbols, ...memorySymbols];
+
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] =
+                    [shuffled[j], shuffled[i]];
+            }
+
+            return shuffled;
+        }
+
+        function updateMatchStats() {
+            matchPairs.textContent = `${foundPairs} / 6`;
+            matchMoves.textContent = moves;
+        }
+
+        function resetTurn() {
+            firstCard = null;
+            secondCard = null;
+            lockBoard = false;
+        }
+
+        function handleMatchCard(card) {
+
+            if (
+                lockBoard ||
+                card === firstCard ||
+                card.classList.contains("matched") ||
+                card.classList.contains("flipped")
+            ) return;
+
+            card.classList.add("flipped");
+            card.textContent = card.dataset.symbol;
+
+            if (!firstCard) {
+                firstCard = card;
+                return;
+            }
+
+            secondCard = card;
+            moves++;
+
+            updateMatchStats();
+
+            if (
+                firstCard.dataset.symbol ===
+                secondCard.dataset.symbol
+            ) {
+
+                firstCard.classList.add("matched");
+                secondCard.classList.add("matched");
+
+                firstCard.disabled = true;
+                secondCard.disabled = true;
+
+                foundPairs++;
+                updateMatchStats();
+
+                matchFeedback.textContent =
+                    "Aww, you found a matching pair! ♡";
+
+                resetTurn();
+
+                if (foundPairs === 6) {
+                    matchFeedback.textContent =
+                        "You remembered every little thing! 🥹";
+
+                    matchComplete.hidden = false;
+                }
+
+            } else {
+
+                lockBoard = true;
+
+                matchFeedback.textContent =
+                    "Not a match! Try another pair ♡";
+
+                const cardOne = firstCard;
+                const cardTwo = secondCard;
+
+                setTimeout(() => {
+
+                    cardOne.classList.remove("flipped");
+                    cardTwo.classList.remove("flipped");
+
+                    cardOne.textContent = "♡";
+                    cardTwo.textContent = "♡";
+
+                    resetTurn();
+
+                }, 850);
+            }
+        }
+
+        function startMatchGame() {
+
+            matchGameGrid.replaceChildren();
+
+            foundPairs = 0;
+            moves = 0;
+
+            firstCard = null;
+            secondCard = null;
+            lockBoard = false;
+
+            matchComplete.hidden = true;
+
+            matchFeedback.textContent =
+                "Tap any two cards to find a matching pair ♡";
+
+            updateMatchStats();
+
+            const shuffledSymbols = shuffleMemories();
+
+            shuffledSymbols.forEach((symbol, index) => {
+
+                const card = document.createElement("button");
+
+                card.type = "button";
+                card.className = "match-card";
+                card.textContent = "♡";
+                card.dataset.symbol = symbol;
+
+                card.setAttribute(
+                    "aria-label",
+                    `Memory card ${index + 1}`
+                );
+
+                card.addEventListener("click", () => {
+                    handleMatchCard(card);
+                });
+
+                matchGameGrid.appendChild(card);
+            });
+        }
+
+        matchRestart.addEventListener(
+            "click",
+            startMatchGame
+        );
+
+        startMatchGame();
+    }
+
 })

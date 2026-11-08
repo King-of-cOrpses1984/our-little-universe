@@ -5011,3 +5011,304 @@ and (max-width: 900px) {
     }
 }
 
+
+
+/* =================================
+   CHAPTER 05 — OUR LITTLE PLAYROOM
+================================= */
+
+.playroom-section {
+    position: relative;
+    overflow: visible;
+    min-height: 100vh;
+    padding: 110px 20px 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 192, 203, 0.12), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(190, 170, 255, 0.13), transparent 35%),
+        #100d20;
+    color: #fff;
+    text-align: center;
+}
+
+.playroom-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.45;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+        radial-gradient(2px 2px at 70% 20%, #fff, transparent),
+        radial-gradient(1px 1px at 40% 80%, #fff, transparent),
+        radial-gradient(2px 2px at 85% 65%, #fff, transparent),
+        radial-gradient(1px 1px at 10% 75%, #fff, transparent);
+    background-size: 240px 240px;
+}
+
+.playroom-heading {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 38px;
+}
+
+.playroom-heading span {
+    color: #e8a9d1;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+}
+
+.playroom-heading h2 {
+    margin: 15px 0;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: #ffe0f0;
+}
+
+.playroom-heading p {
+    color: #d5c9df;
+    line-height: 1.8;
+}
+
+.match-game-card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 650px);
+    margin: 0 auto;
+    padding: 30px 22px;
+    border: 1px solid rgba(255, 210, 235, 0.2);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12px);
+}
+
+.match-game-title span {
+    color: #e8a9d1;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.match-game-title h3 {
+    margin: 12px 0 7px;
+    color: #ffe0f0;
+    font-size: 1.7rem;
+}
+
+.match-game-title p {
+    color: #d5c9df;
+    font-size: 0.9rem;
+}
+
+.match-game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin: 25px 0;
+}
+
+.match-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.match-stat span {
+    color: #ffd4e9;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.match-stat small {
+    color: #c5b8d1;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+}
+
+.match-game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    width: min(100%, 440px);
+    margin: 0 auto;
+}
+
+.match-card {
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 210, 235, 0.25);
+    border-radius: 15px;
+    background: linear-gradient(145deg, #493052, #28203e);
+    color: #fff;
+    font-size: clamp(1.5rem, 5vw, 2.3rem);
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-4px);
+}
+
+.match-card.flipped,
+.match-card.matched {
+    background: linear-gradient(145deg, #f6c6df, #d9b8f5);
+    color: #392541;
+}
+
+.match-card.matched {
+    cursor: default;
+    opacity: 0.75;
+    transform: scale(0.96);
+}
+
+.match-card:disabled {
+    cursor: default;
+}
+
+.match-game-feedback {
+    min-height: 28px;
+    margin: 24px 0 15px;
+    color: #f4c8df;
+    font-size: 0.9rem;
+}
+
+.match-game-restart {
+    padding: 12px 25px;
+    border: 1px solid #f2c0dd;
+    border-radius: 30px;
+    background: transparent;
+    color: #ffe0f0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.match-game-restart:hover {
+    background: #f2c0dd;
+    color: #302039;
+}
+
+.match-game-complete {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(255, 210, 235, 0.1);
+}
+
+.match-game-complete span {
+    font-size: 2.5rem;
+}
+
+.match-game-complete h3 {
+    color: #ffe0f0;
+    margin: 10px 0;
+}
+
+.match-game-complete p {
+    color: #d5c9df;
+    line-height: 1.7;
+}
+
+.playroom-bottom-note {
+    position: relative;
+    z-index: 1;
+    margin: 35px 0;
+    color: #d5c9df;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 480px) {
+    .playroom-section {
+        padding: 90px 14px 50px;
+    }
+
+    .match-game-card {
+        padding: 25px 14px;
+    }
+
+    .match-game-grid {
+        gap: 8px;
+    }
+
+    .match-card {
+        border-radius: 11px;
+    }
+
+    .match-game-stats {
+        gap: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .match-card,
+    .match-game-restart {
+        transition: none;
+    }
+}
+
+
+/* =================================
+   PLAYROOM — CHAPTER NAVIGATION FIX
+================================= */
+
+.playroom-section .chapter-navigation {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: min(100%, 700px);
+    margin: 55px auto 20px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 210, 235, 0.2);
+    visibility: visible;
+    opacity: 1;
+}
+
+.playroom-section .chapter-btn {
+    display: inline-flex;
+    visibility: visible;
+    opacity: 1;
+    color: #ffe0f0;
+    border: 1px solid rgba(255, 210, 235, 0.45);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.playroom-section .chapter-btn:hover {
+    background: rgba(255, 210, 235, 0.18);
+}
+
+@media (max-width: 480px) {
+    .playroom-section .chapter-navigation {
+        gap: 10px;
+    }
+
+    .playroom-section .chapter-btn {
+        flex: 1;
+        padding: 12px 8px;
+        font-size: 10px;
+        white-space: normal;
+    }
+}
+
+/* PLAYROOM — FIX SKIP BUTTON SPACING */
+
+.playroom-skip-navigation {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    margin: 22px auto 45px;
+}
+
+.playroom-skip-navigation .chapter-btn {
+    position: relative;
+    display: inline-flex;
+    padding: 13px 22px;
+}
+
+.match-game-card {
+    margin-top: 0;
+}
+
