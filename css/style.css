@@ -5312,3 +5312,323 @@ and (max-width: 900px) {
     margin-top: 0;
 }
 
+/* =====================================
+   PLAYROOM — MOBILE SCROLL FIX
+===================================== */
+
+.chapter-placeholder.playroom-section {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+
+    justify-content: flex-start;
+}
+
+
+/* =====================================
+   GAME 02 — HOW WELL DO YOU KNOW US?
+===================================== */
+
+.know-us-game-card {
+    width: min(100%, 650px);
+    margin: 55px auto;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(201, 130, 154, 0.25);
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(120, 75, 90, 0.08);
+}
+
+.know-us-game-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.know-us-game-title span {
+    color: var(--rose);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.know-us-game-title h3 {
+    margin: 12px 0;
+    font-size: clamp(24px, 4vw, 32px);
+    color: var(--dark);
+}
+
+.know-us-game-title p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.know-us-progress {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--rose);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.know-us-progress-bar {
+    height: 6px;
+    margin: 12px 0 28px;
+    background: rgba(201, 130, 154, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#quizProgressFill {
+    width: 20%;
+    height: 100%;
+    background: var(--rose);
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.know-us-question-area h4 {
+    color: var(--dark);
+    font-size: 19px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.know-us-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.know-us-option {
+    padding: 16px;
+    min-height: 65px;
+    border: 1px solid rgba(201, 130, 154, 0.3);
+    border-radius: 14px;
+    background: white;
+    color: var(--dark);
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.know-us-option:hover:not(:disabled) {
+    background: rgba(201, 130, 154, 0.1);
+    border-color: var(--rose);
+    transform: translateY(-2px);
+}
+
+.know-us-option:disabled {
+    cursor: default;
+    opacity: 0.9;
+}
+
+.know-us-option.correct {
+    background: rgba(100, 170, 120, 0.15);
+    border-color: #65a878;
+}
+
+.know-us-option.wrong {
+    background: rgba(210, 100, 100, 0.12);
+    border-color: #d46b75;
+}
+
+.know-us-feedback {
+    min-height: 24px;
+    margin: 22px 0 12px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.know-us-next,
+.know-us-restart {
+    display: block;
+    margin: 18px auto 0;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 30px;
+    background: var(--rose);
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.know-us-next:hover,
+.know-us-restart:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+.know-us-complete {
+    padding: 25px 10px 5px;
+    text-align: center;
+}
+
+.know-us-complete > span {
+    font-size: 42px;
+}
+
+.know-us-complete h3 {
+    color: var(--dark);
+    margin: 12px 0;
+}
+
+.know-us-complete p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+@media (max-width: 520px) {
+    .know-us-game-card {
+        padding: 24px 16px;
+        margin: 35px auto;
+    }
+
+    .know-us-options {
+        grid-template-columns: 1fr;
+    }
+
+    .know-us-option {
+        min-height: 55px;
+        padding: 14px;
+    }
+
+    .know-us-question-area h4 {
+        font-size: 17px;
+    }
+}
+
+/* GAME 02 — TEXT VISIBILITY FIX */
+
+.know-us-game-card {
+    background: rgba(255, 255, 255, 0.96) !important;
+}
+
+.know-us-game-title h3,
+.know-us-question-area h4,
+.know-us-complete h3 {
+    color: #493544 !important;
+}
+
+.know-us-option {
+    color: #493544 !important;
+    background: #ffffff !important;
+    border: 1px solid #d9b5c4 !important;
+}
+
+.know-us-option.correct {
+    color: #28643b !important;
+    background: #e2f3e5 !important;
+}
+
+.know-us-option.wrong {
+    color: #963f49 !important;
+    background: #fbe5e7 !important;
+}
+
+.know-us-feedback,
+.know-us-game-title p,
+.know-us-complete p {
+    color: #806b7b !important;
+}
+
+/* MEMORY WALL — SHOW FULL ZIP FOLDERS */
+
+.memory-zip-frame {
+    height: auto !important;
+    min-height: 175px !important;
+    overflow: visible !important;
+}
+
+.memory-zip-cover {
+    height: 155px !important;
+    min-height: 155px !important;
+    overflow: visible !important;
+    padding: 15px 10px !important;
+}
+
+.memory-zip-folder {
+    flex-shrink: 0 !important;
+    margin-top: 8px;
+}
+
+.memory-zip-cover small,
+.memory-zip-cover strong,
+.memory-zip-cover .zip-tap-hint {
+    display: block !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* =====================================
+   CHAPTER 06 — KNOW US QUIZ PAGE
+===================================== */
+
+.chapter-placeholder.know-us-section {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 100px 8% 60px;
+    background: var(--cream);
+
+    -webkit-overflow-scrolling: touch;
+}
+
+/* CHAPTER 06 — HEADING VISIBILITY FIX */
+
+.know-us-section .playroom-heading,
+.know-us-section .playroom-heading span,
+.know-us-section .playroom-heading h2,
+.know-us-section .playroom-heading p {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* CHAPTER 06 — NEXT QUESTION BUTTON FIX */
+.know-us-next {
+    display: inline-block !important;
+    background: linear-gradient(135deg, #d982a8, #b96d91) !important;
+    color: #ffffff !important;
+    border: 1px solid #c9789b !important;
+    border-radius: 30px !important;
+    padding: 13px 28px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(185, 109, 145, 0.2);
+}
+
+.know-us-next:hover {
+    background: linear-gradient(135deg, #c96f98, #a9577c) !important;
+    transform: translateY(-2px);
+}
+
+
+

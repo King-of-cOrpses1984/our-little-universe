@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Registered pages:", [...pageMap.keys()]);
     console.log("Playroom found:", pageMap.has("playroom"));
+    console.log("Know Us found:", pageMap.has("know-us"));
 
 
     function showPage(id) {
@@ -1641,5 +1642,205 @@ if (passcodeForm) {
 
         startMatchGame();
     }
+
+// =====================================
+// GAME 02 — HOW WELL DO YOU KNOW US?
+// =====================================
+
+const quizQuestion = document.getElementById("quizQuestion");
+const quizOptions = document.getElementById("quizOptions");
+const quizQuestionNumber = document.getElementById("quizQuestionNumber");
+const quizScore = document.getElementById("quizScore");
+const quizProgressFill = document.getElementById("quizProgressFill");
+const quizFeedback = document.getElementById("quizFeedback");
+const quizNextButton = document.getElementById("quizNextButton");
+const quizComplete = document.getElementById("quizComplete");
+const quizQuestionArea = document.querySelector(".know-us-question-area");
+const quizFinalTitle = document.getElementById("quizFinalTitle");
+const quizFinalMessage = document.getElementById("quizFinalMessage");
+const quizRestart = document.getElementById("quizRestart");
+
+if (
+    quizQuestion &&
+    quizOptions &&
+    quizQuestionNumber &&
+    quizScore &&
+    quizProgressFill &&
+    quizFeedback &&
+    quizNextButton &&
+    quizComplete &&
+    quizQuestionArea &&
+    quizFinalTitle &&
+    quizFinalMessage &&
+    quizRestart
+) {
+    const quizQuestions = [
+        {
+            question: "When it comes to you, what's one thing I can never do for too long?",
+            options: [
+                "Stay angry at you.",
+                "Ignore your messages.",
+                "Hide my smile when talking to you.",
+                "Pretend I don't miss you."
+            ],
+            answer: 0
+        },
+        {
+            question: "If we had an argument over something completely stupid, who would probably break the silence first?",
+            options: [
+                "Me, obviously.",
+                "You, obviously.",
+                "Both of us pretending nothing happened.",
+                "Neither — we'd make it even more dramatic."
+            ],
+            answer: 0
+        },
+        {
+            question: "What was the date of the evening that became a special chapter in our story?",
+            options: [
+                "3 April 2026",
+                "7 June 2026",
+                "14 December 2026",
+                "1 January 2027"
+            ],
+            answer: 1
+        },
+        {
+            question: "If we were alone together in a room, who would get shy first and find it hard to act normal?",
+            options: [
+                "Me, definitely.",
+                "You, definitely.",
+                "Both of us would pretend to be normal.",
+                "Neither — we'd just keep teasing each other."
+            ],
+            answer: 2
+        },
+        {
+            question: "If I could ask our future selves just one thing, what would it be?",
+            options: [
+                "Are we still each other's favourite person?",
+                "Did we keep our little promises and still look at each other the same way?",
+                "Did life turn out the way we once imagined?",
+                "Are we still laughing at the same silly things?"
+            ],
+            answer: 1
+        }
+    ];
+
+    let currentQuestion = 0;
+    let totalScore = 0;
+    let answered = false;
+
+    function showQuizQuestion() {
+        answered = false;
+
+        const current = quizQuestions[currentQuestion];
+
+        quizQuestionNumber.textContent =
+            `QUESTION ${currentQuestion + 1} / ${quizQuestions.length}`;
+
+        quizScore.textContent = `SCORE: ${totalScore}`;
+
+        quizProgressFill.style.width =
+            `${((currentQuestion + 1) / quizQuestions.length) * 100}%`;
+
+        quizQuestion.textContent = current.question;
+        quizOptions.replaceChildren();
+
+        quizFeedback.textContent = "Choose the answer you think is right. ♡";
+        quizNextButton.hidden = true;
+
+        current.options.forEach((option, index) => {
+            const button = document.createElement("button");
+
+            button.type = "button";
+            button.className = "know-us-option";
+            button.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+
+            button.addEventListener("click", () => {
+                checkQuizAnswer(index);
+            });
+
+            quizOptions.appendChild(button);
+        });
+    }
+
+    function checkQuizAnswer(selectedIndex) {
+        if (answered) return;
+
+        answered = true;
+
+        const current = quizQuestions[currentQuestion];
+        const buttons = quizOptions.querySelectorAll(".know-us-option");
+
+        buttons.forEach((button, index) => {
+            button.disabled = true;
+
+            if (index === current.answer) {
+                button.classList.add("correct");
+            }
+
+            if (index === selectedIndex && selectedIndex !== current.answer) {
+                button.classList.add("wrong");
+            }
+        });
+
+        if (selectedIndex === current.answer) {
+            totalScore++;
+            quizFeedback.textContent = "Yesss! You got that right! ♡";
+        } else {
+            quizFeedback.textContent =
+                "Not quite! But that's okay — you know our story in your own way. ♡";
+        }
+
+        quizScore.textContent = `SCORE: ${totalScore}`;
+        quizNextButton.hidden = false;
+
+        quizNextButton.textContent =
+            currentQuestion === quizQuestions.length - 1
+                ? "See My Score →"
+                : "Next Question →";
+    }
+
+    function finishQuiz() {
+        quizQuestionArea.hidden = true;
+        quizNextButton.hidden = true;
+        quizComplete.hidden = false;
+
+        quizFinalTitle.textContent =
+            totalScore === 5
+                ? "You know us perfectly! 🥹"
+                : totalScore >= 3
+                    ? "You know our little universe! ♡"
+                    : "There's still more to discover! 🎀";
+
+        quizFinalMessage.textContent =
+            `You got ${totalScore} out of 5 questions right. ` +
+            "No matter the score, every little memory matters. ♡";
+    }
+
+    function restartQuiz() {
+        currentQuestion = 0;
+        totalScore = 0;
+
+        quizQuestionArea.hidden = false;
+        quizComplete.hidden = true;
+
+        showQuizQuestion();
+    }
+
+    quizNextButton.addEventListener("click", () => {
+        if (currentQuestion < quizQuestions.length - 1) {
+            currentQuestion++;
+            showQuizQuestion();
+        } else {
+            finishQuiz();
+        }
+    });
+
+    quizRestart.addEventListener("click", restartQuiz);
+
+    showQuizQuestion();
+}
 
 })

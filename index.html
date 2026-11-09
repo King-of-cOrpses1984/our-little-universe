@@ -343,7 +343,7 @@
                     <div class="timeline-content">
 
                         <span class="timeline-date">
-                            7 JULY 2026 · EVENING
+                            7 JUNE 2026 · EVENING
                         </span>
 
                         <h3>A moment at your home</h3>
@@ -1235,7 +1235,6 @@
 
 </div>
  
-
 <!-- MEMORY GAME CARD -->
 
 <div class="match-game-card">
@@ -1282,44 +1281,12 @@
     </div>
 
 </div>
-        <div class="match-game-stats">
 
-            <div class="match-stat">
-                <span id="matchPairs">0 / 6</span>
-                <small>PAIRS FOUND</small>
-            </div>
+<!-- =====================================
+     GAME 02 — HOW WELL DO YOU KNOW US?
+===================================== -->
 
-            <div class="match-stat">
-                <span id="matchMoves">0</span>
-                <small>MOVES</small>
-            </div>
 
-        </div>
-
-        <div class="match-game-grid" id="matchGameGrid">
-
-            <!-- JavaScript creates the game cards here -->
-
-        </div>
-
-        <p class="match-game-feedback" id="matchGameFeedback">
-            Tap any two cards to find a matching pair ♡
-        </p>
-
-        <button
-            type="button"
-            class="match-game-restart"
-            id="matchGameRestart">
-            ↻ Play Again
-        </button>
-
-        <div class="match-game-complete" id="matchGameComplete" hidden>
-            <span>🎀</span>
-            <h3>You found them all!</h3>
-            <p>Looks like you remember our little universe pretty well. ♡</p>
-        </div>
-
-    </div>
 
     <div class="playroom-bottom-note">
         Just a little game, made with lots of love ♡
@@ -1331,8 +1298,8 @@
             ← Back to our universe
         </a>
 
-        <a href="#letter" class="chapter-btn next-btn">
-            Continue to your little letter →
+        <a href="#know-us" class="chapter-btn next-btn">
+             Continue to our next little game →
         </a>
 
     </div>
@@ -1340,8 +1307,88 @@
     <div class="page-number">
         05 / OUR LITTLE PLAYROOM
     </div>
+</section>
+
+
+<!-- =====================================
+     CHAPTER 06 — HOW WELL DO YOU KNOW US?
+===================================== -->
+
+<section class="chapter-placeholder know-us-section" id="know-us">
+
+    <div class="playroom-heading">
+        <span>CHAPTER 06 · A LITTLE TEST</span>
+
+        <h2>How Well Do You Know Us? ♡</h2>
+
+        <p>
+            Let's see how much you remember about our little universe!
+        </p>
+    </div>
+
+    <!-- GAME 02 GOES HERE -->
+     <div class="know-us-game-card">
+
+    <div class="know-us-game-title">
+        <span>✦ OUR SECOND LITTLE GAME ✦</span>
+        <h3>How Well Do You Know Us?</h3>
+        <p>Let's see how much you remember about us. ♡</p>
+    </div>
+
+    <div class="know-us-progress">
+        <span id="quizQuestionNumber">QUESTION 1 / 5</span>
+        <span id="quizScore">SCORE: 0</span>
+    </div>
+
+    <div class="know-us-progress-bar">
+        <div id="quizProgressFill"></div>
+    </div>
+
+    <div class="know-us-question-area">
+
+        <h4 id="quizQuestion">
+            When it comes to you, what's one thing I can never do for too long?
+        </h4>
+
+        <div class="know-us-options" id="quizOptions">
+
+            <!-- JavaScript creates the answer buttons here -->
+
+        </div>
+
+    </div>
+
+    <p class="know-us-feedback" id="quizFeedback">
+        Choose the answer you think is right. ♡
+    </p>
+
+    <button
+        type="button"
+        class="know-us-next"
+        id="quizNextButton"
+        hidden>
+        Next Question →
+    </button>
+
+    <div class="know-us-complete" id="quizComplete" hidden>
+        <span>🎀</span>
+        <h3 id="quizFinalTitle">You know us pretty well!</h3>
+        <p id="quizFinalMessage"></p>
+
+        <button
+            type="button"
+            class="know-us-restart"
+            id="quizRestart">
+            ↻ Play Again
+        </button>
+    </div>
+
+</div>
+
+
 
 </section>
+
 
 
         <section class="chapter-placeholder letter-section" id="letter">
